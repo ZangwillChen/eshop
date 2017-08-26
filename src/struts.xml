@@ -23,7 +23,7 @@
                 </result>
             </action>
             
-            <action name="listaction" class="listAction">
+            <action name="listaction" class="listAction" method="list">
                 <result>
                     /list.jsp
                 </result>

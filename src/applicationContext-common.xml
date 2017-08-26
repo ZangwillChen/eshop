@@ -42,7 +42,7 @@
         <property name="userDao" ref="userDao"/>
     </bean>
     <bean id="goodsService" class="com.czw.eshop.service.goodServiceImpl">
-        <property name="baseDao" ref="baseDao"></property>
+        <property name="baseDao" ref="baseDao"/>
     </bean>
     <bean id="orderService" class="com.czw.eshop.service.orderServiceImpl">
         <property name="baseDao" ref="baseDao"/>
@@ -60,7 +60,7 @@
 
     <aop:config>
 
-        <aop:pointcut expression="execution ( public * com.cn.shop.service..*.*(..))" id="bussinessService"/>
+        <aop:pointcut expression="execution ( public * com.czw.eshop.service..*.*(..))" id="bussinessService"/>
 
         <aop:advisor pointcut-ref="bussinessService" advice-ref="txAdvice"/>
 

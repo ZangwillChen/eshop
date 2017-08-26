@@ -55,5 +55,6 @@
     <orderEntry type="library" name="servlet-api" level="project" />
     <orderEntry type="library" name="hibernate-c3p0-4.1.4.Final" level="project" />
     <orderEntry type="library" name="hibernate-ehcache-4.1.4.Final" level="project" />
+    <orderEntry type="library" name="antlr-2.7.6" level="project" />
   </component>
 </module>
