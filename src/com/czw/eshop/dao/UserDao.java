@@ -5,7 +5,7 @@ import com.czw.eshop.entity.user;
 /**
  * Created by chenzhaowen on 2017/8/26.
  */
-public interface UserDao {
+public interface UserDao extends BaseDao {
 
     public user loginCheck(String userName,String userPassword);
 

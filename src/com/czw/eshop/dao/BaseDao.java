@@ -28,4 +28,12 @@ public interface BaseDao {
 
     public <T> T getEntityById( Class<T> entityClass , Serializable id );
 
+
+    //分页
+
+    public <T> List<T> getbyPage(String hql, int pageNo, int pageSize  ,int real  );
+
+    //最页码
+
+    public <T> int realPage( String hql );
 }

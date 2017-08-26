@@ -4,8 +4,8 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="hibernate.cfg.xml" />
-          <unit-entry name="sessionFactory" />
+          <unit-entry name="hibernate.cfg.xml" value="3e632e8c-863c-4bb2-ad8f-867785427291" />
+          <unit-entry name="sessionFactory" value="6db29a68-0450-44e4-90d5-0b57ed6cad2f" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate.cfg.xml" />
@@ -53,5 +53,7 @@
     <orderEntry type="library" name="springframework" level="project" />
     <orderEntry type="library" name="mysql-connector-java-5.1.30-bin" level="project" />
     <orderEntry type="library" name="servlet-api" level="project" />
+    <orderEntry type="library" name="hibernate-c3p0-4.1.4.Final" level="project" />
+    <orderEntry type="library" name="hibernate-ehcache-4.1.4.Final" level="project" />
   </component>
 </module>

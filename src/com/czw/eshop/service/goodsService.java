@@ -13,5 +13,7 @@ public interface goodsService {
 
     public List<goods> getAllGoods();
 
+    public List<goods> getByPage(int pageNo ,int pageSize);
 
+    public int maxsize();
 }

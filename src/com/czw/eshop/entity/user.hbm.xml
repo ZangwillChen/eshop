@@ -10,17 +10,17 @@
         
         <property name="userName" type="java.lang.String" unique="true" not-null="true"
                   length="32" column="u_name" />
-        <property name="userPassword" type="java.lang.String" not-null="true" length="20" column="u_pwd"/>
+        <property name="userPassword" not-null="true" length="20" column="u_pwd"/>
         
-        <property name="userSex" type="java.lang.String" not-null="true" length="2" column="u_sex"/>
+        <property name="userSex"  not-null="true" length="2" column="u_sex"/>
         
-        <property name="userPhone" type="java.lang.Long" unique="true" length="20" column="u_phone"/>
+        <property name="userPhone" unique="true" length="20" column="u_phone"/>
         
-        <property name="userEmail" type="java.lang.String" unique="true" length="32" column="u_mail"/>
+        <property name="userEmail"  unique="true" length="32" column="u_mail"/>
 
-        <property name="userAddr" type="java.lang.String" unique="false" length="50" column="u_addr"/>
+        <property name="userAddr"  unique="false" length="50" column="u_addr"/>
 
-        <property name="userType" type="int" unique="false" length="10" column="u_type" />
+        <property name="userType" unique="false" length="10" column="u_type" />
         
     </class>
 </hibernate-mapping>

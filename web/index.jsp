@@ -11,6 +11,6 @@
     <title>Test</title>
   </head>
   <body>
-  $END$
+  <meta http-equiv='refresh' content='0;url=<%=context %>/from/listaction!list'>
   </body>
 </html>

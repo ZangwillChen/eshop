@@ -73,4 +73,45 @@ public class BaseDaoImpl implements BaseDao {
 
     }
 
+    @Override
+    public <T> List<T> getbyPage(String hql, int pageNo, int pageSize ,int real ) {
+        // TODO Auto-generated method stub
+
+        List<T> list = new ArrayList<T>();
+
+        int begin =  (pageNo-1 )*pageSize;
+
+        int end =  (pageNo )*pageSize;
+
+        if( end > real )
+        {
+            end = real;
+        }
+
+
+
+
+
+        list = this.hibernateTemplate.find(hql).subList( begin , end );
+
+        return list;
+
+
+    }
+
+    //实际页码
+    @Override
+    public <T> int realPage(String hql) {
+        // TODO Auto-generated method stub
+
+        int count = 0;
+
+
+
+        count = this.hibernateTemplate.find(hql).size();
+
+
+
+        return count;
+    }
 }

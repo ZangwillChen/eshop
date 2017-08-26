@@ -16,10 +16,20 @@ public class order {
 
     private double cost;
 
+    private long item ;
+
     public order() {
     }
 
-    public order(long orderID, String orderName,int status, com.czw.eshop.entity.user user, double cost) {
+    public long getItem() {
+        return item;
+    }
+
+    public void setItem(long item) {
+        this.item = item;
+    }
+
+    public order(long orderID, String orderName, int status, com.czw.eshop.entity.user user, double cost , long item)  {
         this.orderID = orderID;
         this.orderName = orderName;
         this.status = status;

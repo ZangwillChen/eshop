@@ -17,6 +17,34 @@
     <constant name="struts.multipart.saveDir" value="/Users/chenzhaowen/Projects/eshop/photo"/>
         <package name="from" namespace="/from" extends="struts-default">
 
+            <action name="loginaction" class="loginAction">
+                <result name="user">
+                    /list.jsp
+                </result>
+            </action>
+            
+            <action name="listaction" class="listAction">
+                <result>
+                    /list.jsp
+                </result>
+            </action>
+
+            <action name="order_index" class="orderAction" method="index">
+                <result name="login">
+                    /login.jsp
+                </result>
+                <result name="order">
+                    /order.jsp
+                </result>
+            </action>
+
+            <action name="listaction" class="listAction" method="list">
+                <result name="list">
+                    /list.jsp
+                </result>
+
+
+            </action>
         </package>
 
 

@@ -30,4 +30,30 @@ public class goodServiceImpl implements goodsService {
         return baseDao.getAllEntity("goods");
 
     }
+
+    @Override
+    public List<goods> getByPage(int pageNo, int pageSize) {
+
+        String hql = "from goods";
+
+        int real = baseDao.realPage(hql);
+
+        return baseDao.getbyPage(hql,pageNo,pageSize,real);
+    }
+
+    @Override
+    public int maxsize() {
+
+        String hql = "from goods";
+
+        int count = 0;
+
+        int maxpage = 0;
+
+        count = baseDao.realPage(hql);
+
+        maxpage = (count + 4)/5;
+
+        return maxpage;
+    }
 }

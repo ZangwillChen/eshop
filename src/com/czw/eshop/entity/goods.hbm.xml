@@ -9,7 +9,7 @@
         </id>
 
         <property name="goodName" column="g_name" length="20" not-null="true" type="java.lang.String"/>
-        <property name="goodPrice" type="java.lang.Double" not-null="true" column="g_cost" length="20" />
+        <property name="goodPrice" type="java.lang.Double" not-null="true" column="g_cost" />
         <property name="inventory" column="g_inv" length="20" not-null="true" type="int"/>
     </class>
 </hibernate-mapping>
