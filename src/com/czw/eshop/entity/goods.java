@@ -1,5 +1,8 @@
 package com.czw.eshop.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 /**
  * Created by chenzhaowen on 2017/8/26.
  */
