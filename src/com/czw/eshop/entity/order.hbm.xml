@@ -9,13 +9,15 @@
             <generator class="increment"/>
         </id>
 
+        <property name="orderName" type="java.lang.String" length="20" column="o_name" unique="true"/>
+
         <many-to-one name="user" column="u_id"
                      class="com.czw.eshop.entity.user" cascade="none"
                      lazy="false"/>
 
         <property name="cost" type="java.lang.Double" column="o_cost" length="20" not-null="true" unique="false"/>
 
-        <property name="status" type="java.lang.String" column="o_status" length="20" not-null="true" unique="false"/>
+        <property name="status" type="int" column="o_status" length="20" not-null="true" unique="false"/>
 
     </class>
 </hibernate-mapping>

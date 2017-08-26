@@ -8,7 +8,9 @@ import java.util.Date;
 public class order {
     private long orderID;
 
-    private String status;
+    private String orderName;
+
+    private int status;
 
     private user user;
 
@@ -17,8 +19,9 @@ public class order {
     public order() {
     }
 
-    public order(long orderID, String status, com.czw.eshop.entity.user user, double cost) {
+    public order(long orderID, String orderName,int status, com.czw.eshop.entity.user user, double cost) {
         this.orderID = orderID;
+        this.orderName = orderName;
         this.status = status;
         this.user = user;
         this.cost = cost;
@@ -32,11 +35,19 @@ public class order {
         this.orderID = orderID;
     }
 
-    public String getStatus() {
+    public String getOrderName() {
+        return orderName;
+    }
+
+    public void setOrderName(String orderName) {
+        this.orderName = orderName;
+    }
+
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
