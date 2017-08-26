@@ -52,5 +52,6 @@
     <orderEntry type="library" name="org.hamcrest.core_1.1.0.v20090501071000" level="project" />
     <orderEntry type="library" name="springframework" level="project" />
     <orderEntry type="library" name="mysql-connector-java-5.1.30-bin" level="project" />
+    <orderEntry type="library" name="servlet-api" level="project" />
   </component>
 </module>
