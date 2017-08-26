@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.czw.eshop.entity.user" table="tb_u">
+        <id name="userID" column="u_id" type="java.lang.Long">
+            <generator class="increment" />
+        </id>
+        
+        <property name="userName" type="java.lang.String" unique="true" not-null="true"
+                  length="32" column="u_name" />
+        <property name="userPassword" type="java.lang.String" not-null="true" length="20" column="u_pwd"/>
+        
+        <property name="userSex" type="java.lang.String" not-null="true" length="2" column="u_sex"/>
+        
+        <property name="userPhone" type="java.lang.Long" unique="true" length="20" column="u_phone"/>
+        
+        <property name="userEmail" type="java.lang.String" unique="true" length="32" column="u_mail"/>
+
+        <property name="userAddr" type="java.lang.String" unique="false" length="50" column="u_addr"/>
+
+        <property name="userType" type="int" unique="false" length="10" column="u_type" />
+        
+    </class>
+</hibernate-mapping>

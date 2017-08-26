@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.czw.eshop.entity.order" table="tb_order">
+        <id name="orderID" column="o_id" type="java.lang.Long">
+            <generator class="increment"/>
+        </id>
+
+        <many-to-one name="user" column="u_id"
+                     class="com.czw.eshop.entity.user" cascade="none"
+                     lazy="false"/>
+
+        <property name="cost" type="java.lang.Double" column="o_cost" length="20" not-null="true" unique="false"/>
+
+        <property name="status" type="java.lang.String" column="o_status" length="20" not-null="true" unique="false"/>
+
+    </class>
+</hibernate-mapping>

@@ -40,7 +40,7 @@
         <property name="format_sql">true</property>
 
 
-        <mapping resource=""/>
+        <mapping resource="com/czw/eshop/entity/user.hbm.xml"/>
 
 
     </session-factory>

@@ -14,5 +14,10 @@
     
     <constant name="struts.multipart.maxSize" value="1024102400" />
     
-    <constant name="struts.multipart.saveDir" value=""
+    <constant name="struts.multipart.saveDir" value="/Users/chenzhaowen/Projects/eshop/photo"/>
+        <package name="from" namespace="/from" extends="struts-default">
+
+        </package>
+
+
 </struts>
