@@ -16,8 +16,8 @@ import javax.servlet.http.HttpSession;
 /**
  * Created by chenzhaowen on 2017/8/26.
  */
-@Scope("prototype")
-@Controller("loginAction")
+//@Scope("prototype")
+//@Controller("loginAction")
 public class LoginAction extends ActionSupport {
 
     private String username;
@@ -74,6 +74,8 @@ public class LoginAction extends ActionSupport {
 
         else {
             this.session.setAttribute(constants.SESSION_USER,user);
+
+            ret = "user";
         }
         return ret;
     }

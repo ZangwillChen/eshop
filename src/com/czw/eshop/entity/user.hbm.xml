@@ -8,7 +8,7 @@
             <generator class="increment" />
         </id>
         
-        <property name="userName" type="java.lang.String" unique="true" not-null="true"
+        <property name="userName"  unique="true" not-null="true"
                   length="32" column="u_name" />
         <property name="userPassword" not-null="true" length="20" column="u_pwd"/>
         

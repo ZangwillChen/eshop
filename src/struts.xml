@@ -18,9 +18,8 @@
         <package name="from" namespace="/from" extends="struts-default">
 
             <action name="loginaction" class="loginAction">
-                <result name="user">
-                    /list.jsp
-                </result>
+                <result name="user">/list.jsp</result>
+                <result name="restart">/login.jsp</result>
             </action>
             
             <action name="listaction" class="listAction" method="list">
