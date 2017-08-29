@@ -1,5 +1,6 @@
 package com.czw.eshop.action;
 
+import com.czw.eshop.entity.Admin;
 import com.czw.eshop.service.constants;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -75,9 +76,14 @@ public class LoginAction extends ActionSupport {
         else {
             this.session.setAttribute(constants.SESSION_USER,user);
 
-            ret = "user";
+            if (user instanceof Admin) {
+
+                ret = "manager";
+            }
+            else {
+                ret = "user";
+            }
         }
         return ret;
     }
-
 }
