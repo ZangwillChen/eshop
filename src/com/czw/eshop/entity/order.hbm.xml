@@ -8,8 +8,12 @@
         <id name="orderID" column="o_id"/>
         <property name="orderName" column="orderName"/>
         <property name="status" column="o_status"/>
-        <many-to-one name="user" class="com.czw.eshop.entity.user" cascade="none" column="u_id"/>
-        <property name="Item" column="o_item"/>
+        <many-to-one name="user" class="com.czw.eshop.entity.user" column="u_id" cascade="none" lazy="false"/>
         <property name="orderPrice" column="cost"/>
+        <map name="items" table="tb_order" lazy="false" cascade="all" order-by="good_ID">
+            <key column="o_id"/>
+            <map-key column="good_id" type="java.lang.Long"/>
+            <one-to-many class="com.czw.eshop.entity.item"/>
+        </map>
     </class>
 </hibernate-mapping>

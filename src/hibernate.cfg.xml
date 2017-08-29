@@ -37,6 +37,8 @@
         <mapping class="com.czw.eshop.entity.order"/>
         <mapping class="com.czw.eshop.entity.user"/>
         <mapping resource="com/czw/eshop/entity/user.hbm.xml"/>
+        <mapping class="com.czw.eshop.entity.item"/>
+        <mapping resource="com/czw/eshop/entity/item.hbm.xml"/>
 
         <!-- Drop and re-create the database schema on startup -->
         <!--   <property name="hbm2ddl.auto"

@@ -3,10 +3,9 @@ package com.czw.eshop.entity;
 import javax.persistence.*;
 
 /**
- * Created by chenzhaowen on 2017/8/27.
+ * Created by chenzhaowen on 2017/8/29.
  */
-@Entity
-@Table(name = "tb_u", schema = "shop", catalog = "")
+
 public class user {
     private long userID;
     private String userName;
@@ -16,6 +15,16 @@ public class user {
     private String userEmail;
     private String userPhone;
     private String userType;
+
+    public user() {
+        super();
+    }
+
+    public user(String userName, String userPwd) {
+        super();
+        this.userName = userName;
+        this.userPwd = userPwd;
+    }
 
     @Id
     @Column(name = "u_id")

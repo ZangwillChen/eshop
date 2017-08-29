@@ -3,7 +3,7 @@ package com.czw.eshop.entity;
 import javax.persistence.*;
 
 /**
- * Created by chenzhaowen on 2017/8/27.
+ * Created by chenzhaowen on 2017/8/29.
  */
 @Entity
 @Table(name = "tb_good", schema = "shop", catalog = "")
@@ -12,6 +12,15 @@ public class goods {
     private String goodName;
     private double goodPrice;
     private String inventory;
+
+    public goods() {
+        super();
+    }
+
+    public goods(String goodName) {
+        super();
+        this.goodName = goodName;
+    }
 
     @Id
     @Column(name = "g_id")

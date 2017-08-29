@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.czw.eshop.entity.item" table="tb_order_item" schema="shop">
+        <id name="itemID" column="i_id"/>
+        <property name="itemAmount" column="i_amount"/>
+        <many-to-one name="goodID" class="com.czw.eshop.entity.goods"  column="good_id" cascade="none"/>
+        <many-to-one name="orderID" class="com.czw.eshop.entity.order" column="order_id" cascade="none"/>
+    </class>
+</hibernate-mapping>

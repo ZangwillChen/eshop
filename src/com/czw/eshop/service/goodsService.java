@@ -13,6 +13,12 @@ public interface goodsService {
 
     public List<goods> getAllGoods();
 
+    public void addGoods(goods good);
+
+    public void deleteGood(long goodID);
+
+    public void updateGood(goods good);
+
     public List<goods> getByPage(int pageNo ,int pageSize);
 
     public int maxsize();

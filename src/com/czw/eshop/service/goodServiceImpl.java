@@ -32,6 +32,21 @@ public class goodServiceImpl implements goodsService {
     }
 
     @Override
+    public void addGoods(goods good) {
+        this.baseDao.updateEntity(good);
+    }
+
+    @Override
+    public void deleteGood(long goodID) {
+        this.baseDao.deleteEntityById(goods.class,goodID);
+    }
+
+    @Override
+    public void updateGood(goods good) {
+        this.baseDao.updateEntity(good);
+    }
+
+    @Override
     public List<goods> getByPage(int pageNo, int pageSize) {
 
         String hql = "from goods";

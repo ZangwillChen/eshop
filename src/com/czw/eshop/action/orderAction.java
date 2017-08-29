@@ -71,6 +71,7 @@ public class orderAction extends ActionSupport {
 
         return ret;
     }
+    /*
 
     public String postOrder( ){
 
@@ -88,11 +89,8 @@ public class orderAction extends ActionSupport {
 
         o.setUser(u);
 
-        Long goodId = new Long(goodID);
 
-        String gid = goodId.toString();
 
-        o.setItem(gid);
 
         o.setStatus(constants.ORDER_STATUS_POST);
 
@@ -101,5 +99,5 @@ public class orderAction extends ActionSupport {
         this.request.setAttribute(constants.REQ_ORDER_NUMBER,orderNum);
 
         return "success";
-    }
+    }*/
 }
