@@ -1,24 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-mapping PUBLIC
-        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.czw.eshop.entity.order" table="tb_order">
-        <id name="orderID" column="o_id" type="java.lang.Long">
-            <generator class="increment"/>
-        </id>
-
-        <property name="orderName" length="20" column="o_name" unique="true"/>
-
-        <many-to-one name="user" column="u_id"
-                     class="com.czw.eshop.entity.user" cascade="none"
-                     lazy="false"/>
-
-        <property name="cost" column="o_cost"  unique="false"/>
-
-        <property name="status"  column="o_status" length="20" not-null="true" unique="false"/>
-
-        <property name="item" column="o_item" length="20" not-null="true"/>
+    <class name="com.czw.eshop.entity.order" table="tb_order" schema="shop">
+        <id name="orderID" column="o_id"/>
+        <property name="orderName" column="orderName"/>
+        <property name="status" column="o_status"/>
+        <many-to-one name="user" class="com.czw.eshop.entity.user" cascade="none" column="u_id"/>
+        <property name="Item" column="o_item"/>
+        <property name="orderPrice" column="cost"/>
     </class>
 </hibernate-mapping>

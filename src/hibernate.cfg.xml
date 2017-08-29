@@ -31,6 +31,12 @@
         <property name="show_sql">true</property>
 
         <property name="format_sql">true</property>
+        <mapping class="com.czw.eshop.entity.goods"/>
+        <mapping resource="com/czw/eshop/entity/goods.hbm.xml"/>
+        <mapping resource="com/czw/eshop/entity/order.hbm.xml"/>
+        <mapping class="com.czw.eshop.entity.order"/>
+        <mapping class="com.czw.eshop.entity.user"/>
+        <mapping resource="com/czw/eshop/entity/user.hbm.xml"/>
 
         <!-- Drop and re-create the database schema on startup -->
         <!--   <property name="hbm2ddl.auto"

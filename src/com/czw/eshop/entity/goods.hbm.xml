@@ -1,15 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-mapping PUBLIC
-        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.czw.eshop.entity.goods" table="tb_goods">
-        <id name="goodID" column="g_id" >
-            <generator class="increment"/>
-        </id>
 
-        <property name="goodName" column="g_name" length="20" not-null="true" type="java.lang.String"/>
-        <property name="goodPrice" type="java.lang.Double" not-null="true" column="g_cost" />
-        <property name="inventory" column="g_inv" length="20" not-null="true" type="int"/>
+    <class name="com.czw.eshop.entity.goods" table="tb_good" schema="shop">
+        <id name="goodID" column="g_id"/>
+        <property name="goodName" column="g_name"/>
+        <property name="goodPrice" column="g_cost"/>
+        <property name="inventory" column="g_inv"/>
     </class>
 </hibernate-mapping>

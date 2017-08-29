@@ -14,7 +14,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
     @Override
     public user loginCheck(String userName, String userPassword){
 
-        String hql = "from com.czw.eshop.entity.user u where u.userName = "+"'"+userName +"'" + " " + "and u.userPassword =" + " " + "'"+userPassword +"'";
+        String hql = "from com.czw.eshop.entity.user u where u.userName = "+"'"+userName +"'" + " " + "and u.userPwd =" + " " + "'"+userPassword +"'";
 
         List<user> list = this.getHibernateTemplate().find(hql);
 

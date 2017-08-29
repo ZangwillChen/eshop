@@ -88,7 +88,11 @@ public class orderAction extends ActionSupport {
 
         o.setUser(u);
 
-        o.setItem(goodID);
+        Long goodId = new Long(goodID);
+
+        String gid = goodId.toString();
+
+        o.setItem(gid);
 
         o.setStatus(constants.ORDER_STATUS_POST);
 

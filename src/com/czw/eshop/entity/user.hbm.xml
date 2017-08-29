@@ -1,26 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-mapping PUBLIC
-        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.czw.eshop.entity.user" table="tb_u">
-        <id name="userID" column="u_id" type="java.lang.Long">
-            <generator class="increment" />
-        </id>
-        
-        <property name="userName"  unique="true" not-null="true"
-                  length="32" column="u_name" />
-        <property name="userPassword" not-null="true" length="20" column="u_pwd"/>
-        
-        <property name="userSex"  not-null="true" length="2" column="u_sex"/>
-        
-        <property name="userPhone" unique="true" length="20" column="u_phone"/>
-        
-        <property name="userEmail"  unique="true" length="32" column="u_mail"/>
 
-        <property name="userAddr"  unique="false" length="50" column="u_addr"/>
-
-        <property name="userType" unique="false" length="10" column="u_type" />
-        
+    <class name="com.czw.eshop.entity.user" table="tb_u" schema="shop">
+        <id name="userID" column="u_id"/>
+        <property name="userName" column="u_name"/>
+        <property name="userPwd" column="u_pwd"/>
+        <property name="userAddr" column="u_addr"/>
+        <property name="userSex" column="u_sex"/>
+        <property name="userEmail" column="u_mail"/>
+        <property name="userPhone" column="u_phone"/>
+        <property name="userType" column="u_type"/>
     </class>
 </hibernate-mapping>
