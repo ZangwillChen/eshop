@@ -22,4 +22,6 @@ public interface goodsService {
     public List<goods> getByPage(int pageNo ,int pageSize);
 
     public int maxsize();
+
+    //public List<goods> findGoods();
 }

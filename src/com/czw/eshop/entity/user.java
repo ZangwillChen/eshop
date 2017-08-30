@@ -1,5 +1,7 @@
 package com.czw.eshop.entity;
 
+import com.czw.eshop.dto.UserDTO;
+
 import javax.persistence.*;
 
 /**
@@ -104,6 +106,15 @@ public class user {
 
     public void setUserType(String userType) {
         this.userType = userType;
+    }
+
+    public void setUser(UserDTO userDTO){
+
+        this.userName = userDTO.getUserName();
+        this.userPwd = userDTO.getUserPwd1();
+        this.userAddr = userDTO.getUserAddr();
+
+
     }
 
     @Override
