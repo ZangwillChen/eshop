@@ -5,10 +5,9 @@ import com.czw.eshop.dto.UserDTO;
 import javax.persistence.*;
 
 /**
- * Created by chenzhaowen on 2017/8/29.
+ * Created by chenzhaowen on 2017/8/30.
  */
-
-public class user {
+public class User {
     private long userID;
     private String userName;
     private String userPwd;
@@ -18,12 +17,10 @@ public class user {
     private String userPhone;
     private String userType;
 
-    public user() {
-        super();
+    public User() {
     }
 
-    public user(String userName, String userPwd) {
-        super();
+    public User(String userName, String userPwd) {
         this.userName = userName;
         this.userPwd = userPwd;
     }
@@ -108,21 +105,12 @@ public class user {
         this.userType = userType;
     }
 
-    public void setUser(UserDTO userDTO){
-
-        this.userName = userDTO.getUserName();
-        this.userPwd = userDTO.getUserPwd1();
-        this.userAddr = userDTO.getUserAddr();
-
-
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        user user = (user) o;
+        User user = (User) o;
 
         if (userID != user.userID) return false;
         if (userName != null ? !userName.equals(user.userName) : user.userName != null) return false;
@@ -147,5 +135,17 @@ public class user {
         result = 31 * result + (userPhone != null ? userPhone.hashCode() : 0);
         result = 31 * result + (userType != null ? userType.hashCode() : 0);
         return result;
+    }
+
+    public void setUser(UserDTO userDTO){
+
+        this.userName = userDTO.getUserName();
+        this.userPwd = userDTO.getUserPwd1();
+        this.userAddr = userDTO.getUserAddr();
+        this.userEmail = userDTO.getUserEmail();
+        this.userSex = userDTO.getUserSex();
+        this.userPhone = userDTO.getUserPhone();
+        this.userType = "customer";
+
     }
 }

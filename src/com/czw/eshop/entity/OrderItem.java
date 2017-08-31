@@ -3,21 +3,21 @@ package com.czw.eshop.entity;
 import javax.persistence.*;
 
 /**
- * Created by chenzhaowen on 2017/8/29.
+ * Created by chenzhaowen on 2017/8/30.
  */
 
-public class item {
+public class OrderItem {
     private long itemID;
     private int itemAmount;
-    private goods goodID;
-    private order orderID;
+    private Goods goodID;
+    private Order orderID;
 
     private double cost;
 
-    public item() {
+    public OrderItem() {
     }
 
-    public item(int itemAmount, goods goodID) {
+    public OrderItem(int itemAmount, Goods goodID) {
         this.itemAmount = itemAmount;
         this.goodID = goodID;
     }
@@ -42,24 +42,8 @@ public class item {
         this.itemAmount = itemAmount;
     }
 
-    @Basic
-    @Column(name = "good_id")
-    public goods getGoodID() {
+    public Goods getGoodID() {
         return goodID;
-    }
-
-    public void setGoodID(goods goodID) {
-        this.goodID = goodID;
-    }
-
-    @Basic
-    @Column(name = "order_id")
-    public order getOrderID() {
-        return orderID;
-    }
-
-    public void setOrderID(order orderID) {
-        this.orderID = orderID;
     }
 
     public double getCost() {
@@ -70,17 +54,29 @@ public class item {
         this.cost = cost;
     }
 
+    public void setGoodID(Goods goodID) {
+        this.goodID = goodID;
+    }
+
+    public Order getOrderID() {
+        return orderID;
+    }
+
+    public void setOrderID(Order orderID) {
+        this.orderID = orderID;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        item item = (item) o;
+        OrderItem orderItem = (OrderItem) o;
 
-        if (itemID != item.itemID) return false;
-        if (itemAmount != item.itemAmount) return false;
-        if (goodID != null ? !goodID.equals(item.goodID) : item.goodID != null) return false;
-        if (orderID != null ? !orderID.equals(item.orderID) : item.orderID != null) return false;
+        if (itemID != orderItem.itemID) return false;
+        if (itemAmount != orderItem.itemAmount) return false;
+        if (goodID != null ? !goodID.equals(orderItem.goodID) : orderItem.goodID != null) return false;
+        if (orderID != null ? !orderID.equals(orderItem.orderID) : orderItem.orderID != null) return false;
 
         return true;
     }

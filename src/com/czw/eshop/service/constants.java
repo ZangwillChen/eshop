@@ -13,9 +13,10 @@ public class constants {
 
     //session attribute name
     public static final String SESSION_USER = "user";		//保存在Session里面的购物车
+    public static final String SESSION_CART = "cart";
 
     //request attribute name
-    public static final String REQ_GOODS = "products";	//请求里面的所有商品
+    public static final String REQ_GOODS = "goods";	//请求里面的所有商品
     public static final String REQ_ORDER_NUMBER = "orderNum";//请求里面的订单号
     public static final String REQ_ORDERS = "orders";		//请求里面的所有订单
 

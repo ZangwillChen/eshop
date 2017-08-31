@@ -13,15 +13,19 @@ public class GoodsDTO {
 
     private String description;
 
+    private String inventory;
+
     private File file;
 
     public GoodsDTO() {
     }
 
-    public GoodsDTO(String name, double price, String description, File file) {
+
+    public GoodsDTO(String name, double price, String description, String inventory, File file) {
         this.name = name;
         this.price = price;
         this.description = description;
+        this.inventory = inventory;
         this.file = file;
     }
 
@@ -55,5 +59,13 @@ public class GoodsDTO {
 
     public void setFile(File file) {
         this.file = file;
+    }
+
+    public String getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(String inventory) {
+        this.inventory = inventory;
     }
 }

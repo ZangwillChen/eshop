@@ -4,12 +4,16 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 /**
  * Created by chenzhaowen on 2017/8/26.
  */
 public class BaseDaoImpl implements BaseDao {
+
+    Logger logger = Logger.getLogger(this.getClass());
+
     private HibernateTemplate hibernateTemplate;
 
     public HibernateTemplate getHibernateTemplate() {

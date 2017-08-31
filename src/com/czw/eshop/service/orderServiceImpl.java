@@ -1,7 +1,7 @@
 package com.czw.eshop.service;
 
 import com.czw.eshop.dao.BaseDao;
-import com.czw.eshop.entity.order;
+import com.czw.eshop.entity.Order;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,7 +25,7 @@ public class orderServiceImpl implements orderService {
     }
 
     @Override
-    public String generateOrder(order order) {
+    public String generateOrder(Order order) {
         if (order == null) {
             return null;
         }
@@ -38,13 +38,13 @@ public class orderServiceImpl implements orderService {
     }
 
     @Override
-    public List<order> getAllOrder() {
-        return baseDao.getAllEntity("order");
+    public List<Order> getAllOrder() {
+        return baseDao.getAllEntity("Order");
     }
 
     @Override
     public void nextOrderStatus(long orderID) {
-        order order = baseDao.getEntityById(order.class,orderID);
+        Order order = baseDao.getEntityById(Order.class,orderID);
 
         if (order.getStatus() != constants.ORDER_STATUS_END){
             order.setStatus(order.getStatus()+1 );

@@ -1,6 +1,6 @@
 package com.czw.eshop.service;
 
-import com.czw.eshop.entity.goods;
+import com.czw.eshop.entity.Goods;
 
 import java.util.List;
 
@@ -9,17 +9,17 @@ import java.util.List;
  */
 public interface goodsService {
 
-    public goods getGood(long goodID);
+    public Goods getGood(long goodID);
 
-    public List<goods> getAllGoods();
+    public List<Goods> getAllGoods();
 
-    public void addGoods(goods good);
+    public void addGoods(Goods good);
 
     public void deleteGood(long goodID);
 
-    public void updateGood(goods good);
+    public void updateGood(Goods good);
 
-    public List<goods> getByPage(int pageNo ,int pageSize);
+    public List<Goods> getByPage(int pageNo ,int pageSize);
 
     public int maxsize();
 

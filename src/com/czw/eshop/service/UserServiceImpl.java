@@ -2,7 +2,7 @@ package com.czw.eshop.service;
 
 import com.czw.eshop.dao.UserDao;
 import com.czw.eshop.dao.UserDaoImpl;
-import com.czw.eshop.entity.user;
+import com.czw.eshop.entity.User;
 
 /**
  * Created by chenzhaowen on 2017/8/26.
@@ -20,12 +20,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public user login(String userName, String userPassword) {
+    public User login(String userName, String userPassword) {
         return userDao.loginCheck(userName, userPassword);
     }
 
     @Override
-    public void add(user user) {
+    public void add(User user) {
         this.userDao.save(user);
     }
 }

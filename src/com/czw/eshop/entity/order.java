@@ -5,22 +5,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by chenzhaowen on 2017/8/29.
+ * Created by chenzhaowen on 2017/8/30.
  */
-public class order {
+
+public class Order {
     private long orderID;
     private String orderName;
     private int status;
-    private user user;
+    private User user;
     private Double orderPrice;
-    private Map<Long,item> items = new HashMap<Long,item>();
+    private Map<Long,OrderItem> items = new HashMap<Long,OrderItem>();
 
-    public order() {
-        super();
+    public Order() {
     }
 
-    public order(int status, com.czw.eshop.entity.user user) {
-        super();
+    public Order(int status, User user) {
         this.status = status;
         this.user = user;
     }
@@ -55,11 +54,11 @@ public class order {
         this.status = status;
     }
 
-    public com.czw.eshop.entity.user getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(com.czw.eshop.entity.user user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
@@ -68,11 +67,12 @@ public class order {
     public Double getOrderPrice() {
         double sum = 0;
         for (long id : items.keySet()){
-            item i = items.get(id);
+            OrderItem i = items.get(id);
 
             sum += i.getCost();
-         }
-         this.orderPrice = sum;
+        }
+        this.orderPrice = sum;
+
         return orderPrice;
     }
 
@@ -80,13 +80,37 @@ public class order {
         this.orderPrice = orderPrice;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Order order = (Order) o;
 
-    public Map<Long, item> getItems() {
+        if (orderID != order.orderID) return false;
+        if (status != order.status) return false;
+        if (orderName != null ? !orderName.equals(order.orderName) : order.orderName != null) return false;
+        if (user != null ? !user.equals(order.user) : order.user != null) return false;
+        if (orderPrice != null ? !orderPrice.equals(order.orderPrice) : order.orderPrice != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (orderID ^ (orderID >>> 32));
+        result = 31 * result + (orderName != null ? orderName.hashCode() : 0);
+        result = 31 * result + status;
+        result = 31 * result + (user != null ? user.hashCode() : 0);
+        result = 31 * result + (orderPrice != null ? orderPrice.hashCode() : 0);
+        return result;
+    }
+
+    public Map<Long, OrderItem> getItems() {
         return items;
     }
 
-    public void setItems(Map<Long, item> items) {
+    public void setItems(Map<Long, OrderItem> items) {
         this.items = items;
     }
 }

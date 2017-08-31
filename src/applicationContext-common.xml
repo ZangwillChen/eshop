@@ -48,7 +48,7 @@
         <property name="baseDao" ref="baseDao"/>
     </bean>
     <!-- 表现层 -->
-    <bean id="loginAction" class="com.czw.eshop.action.LoginAction" scope="prototype">
+    <bean id="loginAction" class="com.czw.eshop.action.LoginAction" >
         <property name="userService" ref="userService"/>
     </bean>
     <bean id="listAction" class="com.czw.eshop.action.ListAction">
@@ -57,6 +57,17 @@
     <bean id="orderAction" class="com.czw.eshop.action.orderAction">
         <property name="orderservice" ref="orderService"/>
     </bean>
+    <bean id="logoutAction" class="com.czw.eshop.action.LogoutAction">
+    </bean>
+    <bean id="registerAction" class="com.czw.eshop.action.RegisterAction">
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean id="cartAction" class="com.czw.eshop.action.CartAction">
+    </bean>
+    <bean id="managerAction" class="com.czw.eshop.action.ManageAction">
+        <property name="orderService" ref="orderService"/>
+    </bean>
+
 
     <aop:config>
 

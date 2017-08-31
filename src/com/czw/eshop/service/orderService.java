@@ -1,6 +1,6 @@
 package com.czw.eshop.service;
 
-import com.czw.eshop.entity.order;
+import com.czw.eshop.entity.Order;
 
 import java.util.List;
 
@@ -9,9 +9,9 @@ import java.util.List;
  */
 public interface orderService {
 
-    public String generateOrder(order order);
+    public String generateOrder(Order order);
 
-    public List<order> getAllOrder();
+    public List<Order> getAllOrder();
 
     public void nextOrderStatus(long orderID);
 }

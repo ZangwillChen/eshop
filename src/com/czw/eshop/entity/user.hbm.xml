@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.czw.eshop.entity.user" table="tb_u" schema="shop">
+    <class name="com.czw.eshop.entity.User" table="tb_u" schema="shop">
         <id name="userID" column="u_id"/>
         <property name="userName" column="u_name"/>
         <property name="userPwd" column="u_pwd"/>

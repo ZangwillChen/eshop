@@ -4,7 +4,7 @@ import com.czw.eshop.entity.Admin;
 import com.czw.eshop.service.constants;
 import com.opensymphony.xwork2.ActionSupport;
 
-import com.czw.eshop.entity.user;
+import com.czw.eshop.entity.User;
 import com.czw.eshop.service.UserService;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
@@ -65,7 +65,7 @@ public class LoginAction extends ActionSupport {
 
         String ret = "";
 
-        user user = this.userService.login(username,password);
+        User user = this.userService.login(username,password);
 
         if (user == null){
             this.request.setAttribute("msg","用户名或密码错误,登录失败");

@@ -1,6 +1,6 @@
 package com.czw.eshop.action;
 
-import com.czw.eshop.entity.goods;
+import com.czw.eshop.entity.Goods;
 import com.czw.eshop.service.UserService;
 import com.czw.eshop.service.goodsService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -19,7 +19,7 @@ public class ListAction extends ActionSupport {
 
     private goodsService goodsService;
 
-    private List<goods> goodsList;
+    private List<Goods> goodsList;
 
     private long goodID;
 
@@ -58,11 +58,11 @@ public class ListAction extends ActionSupport {
         this.goodsService = goodsService;
     }
 
-    public List<goods> getGoodsList() {
+    public List<Goods> getGoodsList() {
         return goodsList;
     }
 
-    public void setGoodsList(List<goods> goodsList) {
+    public void setGoodsList(List<Goods> goodsList) {
         this.goodsList = goodsList;
     }
 

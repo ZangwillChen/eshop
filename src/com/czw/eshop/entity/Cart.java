@@ -13,23 +13,27 @@ public class Cart {
 
     private Logger logger = Logger.getLogger(this.getClass());
 
-    private Map<Long,item> items = new HashMap<>();
+    private Map<Long,OrderItem> items = new HashMap<>();
 
     //添加商品到购物车
-    public void addItem(goods good , int number){
+    public void addItem(Goods good , int number){
         if (items.containsKey(good.getGoodID())){
             return;
         }
-        item itemSelected = new item(number,good);
+        OrderItem itemSelected = new OrderItem(number,good);
 
         items.put(good.getGoodID(),itemSelected);
     }
 
     //修改商品数量
     public void changeNumberOfGoods(long goodID , int number){
-        item item = items.get(goodID);
+        OrderItem item = items.get(goodID);
 
         item.setItemAmount(number);
+    }
+
+    public void deleteItemById(Long[] goodID){
+        items.remove(goodID);
     }
 
     public void clearCart(){
@@ -38,7 +42,7 @@ public class Cart {
         logger.info("购物车清空:"+items.size());
     }
 
-    public Map<Long,item> getCartItems(){
+    public Map<Long,OrderItem> getCartItems(){
         return items;
     }
 
@@ -55,18 +59,18 @@ public class Cart {
 
         for (Long id : items.keySet()){
 
-            item priceToCal = items.get(id);
+            OrderItem priceToCal = items.get(id);
 
             totalPrice += priceToCal.getCost();
         }
         return totalPrice;
     }
 
-    public Map<Long,item> getItems(){
+    public Map<Long,OrderItem> getItems(){
         return items;
     }
 
-    public void setItems(Map<Long,item> items){
+    public void setItems(Map<Long,OrderItem> items){
         this.items = items;
     }
 

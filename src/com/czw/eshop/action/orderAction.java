@@ -1,8 +1,8 @@
 package com.czw.eshop.action;
 
-import com.czw.eshop.entity.goods;
-import com.czw.eshop.entity.order;
-import com.czw.eshop.entity.user;
+import com.czw.eshop.entity.Goods;
+import com.czw.eshop.entity.Order;
+import com.czw.eshop.entity.User;
 import com.czw.eshop.service.constants;
 import com.czw.eshop.service.goodsService;
 import com.czw.eshop.service.orderService;
@@ -60,7 +60,7 @@ public class orderAction extends ActionSupport {
 
         this.session = this.request.getSession();
 
-        user u = (user)this.session.getAttribute(constants.SESSION_USER);
+        User u = (User) this.session.getAttribute(constants.SESSION_USER);
 
         if (u == null){
             ret = "login";

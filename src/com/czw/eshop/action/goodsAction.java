@@ -1,9 +1,12 @@
 package com.czw.eshop.action;
 
-import com.czw.eshop.entity.goods;
+import com.czw.eshop.dto.GoodsDTO;
+import com.czw.eshop.entity.Goods;
 import com.czw.eshop.service.goodsService;
+import com.czw.eshop.util.UploadUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import org.apache.commons.fileupload.UploadContext;
 import org.apache.struts2.ServletActionContext;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,13 +20,17 @@ public class goodsAction extends ActionSupport  {
 
     private goodsService goodsservice;
 
-    private goods good;
+    private GoodsDTO goodsDTO = new GoodsDTO();
 
-    private List<goods> goodsList;
+    private List<Goods> goodsList;
 
     private HttpServletRequest request;
 
     private HttpServletResponse response;
+
+    private Goods good;
+
+    private Goods updateGood;
 
     //添加分页
 
@@ -41,11 +48,11 @@ public class goodsAction extends ActionSupport  {
         this.goodsservice = goodsservice;
     }
 
-    public List<goods> getGoodsList() {
+    public List<Goods> getGoodsList() {
         return goodsList;
     }
 
-    public void setGoodsList(List<goods> goodsList) {
+    public void setGoodsList(List<Goods> goodsList) {
         this.goodsList = goodsList;
     }
 
@@ -73,6 +80,64 @@ public class goodsAction extends ActionSupport  {
         this.goodID = goodID;
     }
 
+    public Goods getUpdateGood() {
+        return updateGood;
+    }
+
+    public void setUpdateGood(Goods updateGood) {
+        this.updateGood = updateGood;
+    }
+
+    public String addGood(){
+
+        Goods good = new Goods();
+
+        String imagePath = UploadUtil.upload(goodsDTO.getFile());
+
+        good.setImgSrc(imagePath);
+
+        good.setGoodName(goodsDTO.getName());
+
+        good.setGoodPrice(goodsDTO.getPrice());
+
+        good.setInventory(goodsDTO.getInventory());
+
+        good.setDescription(goodsDTO.getDescription());
+
+        goodsservice.addGoods(good);
+
+        return "success";
+    }
+
+    public String updateGood(){
+        updateGood = this.goodsservice.getGood(goodID);
+
+        return "update";
+    }
+
+    public String saveGood(){
+
+        String imagepath = UploadUtil.upload(goodsDTO.getFile());
+
+        updateGood.setGoodName(goodsDTO.getName());
+
+        updateGood.setGoodPrice(goodsDTO.getPrice());
+
+        updateGood.setDescription(goodsDTO.getDescription());
+
+        updateGood.setImgSrc(imagepath);
+
+        this.goodsservice.updateGood(updateGood);
+
+        return "save";
+    }
+
+
+    public void deleteGood(){
+
+        this.goodsservice.deleteGood(goodID);
+    }
+
     public String goodslist(){
         this.request = ServletActionContext.getRequest();
 
@@ -95,5 +160,7 @@ public class goodsAction extends ActionSupport  {
 
         return "list";
     }
+
+
 
 }

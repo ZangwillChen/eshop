@@ -1,7 +1,7 @@
 package com.czw.eshop.service;
 
 import com.czw.eshop.dao.BaseDao;
-import com.czw.eshop.entity.goods;
+import com.czw.eshop.entity.Goods;
 
 import java.util.List;
 
@@ -21,33 +21,33 @@ public class goodServiceImpl implements goodsService {
     }
 
     @Override
-    public goods getGood(long goodID) {
-        return baseDao.getEntityById(goods.class,goodID );
+    public Goods getGood(long goodID) {
+        return baseDao.getEntityById(Goods.class,goodID );
     }
 
     @Override
-    public List<goods> getAllGoods() {
+    public List<Goods> getAllGoods() {
         return baseDao.getAllEntity("goods");
 
     }
 
     @Override
-    public void addGoods(goods good) {
+    public void addGoods(Goods good) {
         this.baseDao.updateEntity(good);
     }
 
     @Override
     public void deleteGood(long goodID) {
-        this.baseDao.deleteEntityById(goods.class,goodID);
+        this.baseDao.deleteEntityById(Goods.class,goodID);
     }
 
     @Override
-    public void updateGood(goods good) {
+    public void updateGood(Goods good) {
         this.baseDao.updateEntity(good);
     }
 
     @Override
-    public List<goods> getByPage(int pageNo, int pageSize) {
+    public List<Goods> getByPage(int pageNo, int pageSize) {
 
         String hql = "from goods";
 
@@ -59,7 +59,7 @@ public class goodServiceImpl implements goodsService {
     @Override
     public int maxsize() {
 
-        String hql = "from goods";
+        String hql = "from Goods";
 
         int count = 0;
 

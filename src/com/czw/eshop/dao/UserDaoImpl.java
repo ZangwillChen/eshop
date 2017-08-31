@@ -1,6 +1,7 @@
 package com.czw.eshop.dao;
 
-import com.czw.eshop.entity.user;
+import com.czw.eshop.entity.User;
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
 
 import java.util.List;
@@ -11,26 +12,27 @@ import java.io.Serializable;
  */
 public class UserDaoImpl extends BaseDaoImpl implements UserDao {
 
+
     @Override
-    public user loginCheck(String userName, String userPassword){
+    public User loginCheck(String userName, String userPassword) {
 
-        String hql = "from com.czw.eshop.entity.user u where u.userName = "+"'"+userName +"'" + " " + "and u.userPwd =" + " " + "'"+userPassword +"'";
+        String hql = "from User user where user.userName ="+"'"+userName+"'"+"and user.userPwd = "+"'"+userPassword+"'";
 
-        List<user> list = this.getHibernateTemplate().find(hql);
+        List<User> userList = this.getHibernateTemplate().find(hql);
 
-        if (list != null && list.size() > 0){
-            System.out.println("用户登录，用户名："+list.get(0).getUserName());
-            return list.get(0);
+        if (userList != null && userList.size() > 0){
+            super.logger.info("login check succ, user.name=" + userList.get(0).getUserName());
+
+            return userList.get(0);
         }
 
         else {
             return null;
         }
-
     }
 
     @Override
-    public void save(user user) {
+    public void save(User user) {
 
         super.saveEntity(user);
     }

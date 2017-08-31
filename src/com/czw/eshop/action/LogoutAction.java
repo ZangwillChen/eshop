@@ -1,6 +1,6 @@
 package com.czw.eshop.action;
 
-import com.czw.eshop.entity.user;
+import com.czw.eshop.entity.User;
 import com.czw.eshop.service.constants;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.log4j.Logger;
@@ -30,7 +30,7 @@ public class LogoutAction extends ActionSupport {
 
         this.session = this.request.getSession();
 
-        user user1 = (user)this.session.getAttribute(constants.SESSION_USER);
+        User user1 = (User) this.session.getAttribute(constants.SESSION_USER);
 
         logger.info(user1.getUserName()+" 已登出");
 
