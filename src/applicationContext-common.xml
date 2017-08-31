@@ -67,6 +67,9 @@
     <bean id="managerAction" class="com.czw.eshop.action.ManageAction">
         <property name="orderService" ref="orderService"/>
     </bean>
+    <bean id="goodsAction" class="com.czw.eshop.action.goodsAction">
+        <property name="goodsservice" ref="goodsService"/>
+    </bean>
 
 
     <aop:config>

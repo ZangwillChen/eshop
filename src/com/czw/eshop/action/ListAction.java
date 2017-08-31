@@ -1,9 +1,12 @@
 package com.czw.eshop.action;
 
+import com.czw.eshop.entity.Cart;
 import com.czw.eshop.entity.Goods;
 import com.czw.eshop.service.UserService;
+import com.czw.eshop.service.constants;
 import com.czw.eshop.service.goodsService;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 
 import javax.servlet.ServletContext;
@@ -16,6 +19,8 @@ import java.util.List;
  * Created by chenzhaowen on 2017/8/26.
  */
 public class ListAction extends ActionSupport {
+
+    Logger logger = Logger.getLogger(this.getClass());
 
     private goodsService goodsService;
 
@@ -94,6 +99,39 @@ public class ListAction extends ActionSupport {
         request.setAttribute("maxpage",maxpage);
 
         return "list";
+    }
+
+    public String addItem(){
+
+        this.request = ServletActionContext.getRequest();
+
+        this.session = this.request.getSession();
+
+        String ret = "add";
+
+        System.out.println(goodID);
+
+        Goods goods = this.goodsService.getGood(goodID);
+
+        Cart cart = (Cart) this.session.getAttribute(constants.SESSION_CART);
+
+        if (cart == null){
+            cart = new Cart();
+
+            this.session.setAttribute(constants.SESSION_CART,cart);
+        }
+
+        cart.addItem(goods,1);
+
+        System.out.println(cart.getPrice());
+        logger.info("添加商品："+cart.getCartItems());
+
+        if (type == 1){             //type为1时跳转到我的购物车界面
+            ret = "find";
+
+            type = 0;
+        }
+        return ret;
     }
 
 

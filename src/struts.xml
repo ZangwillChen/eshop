@@ -19,7 +19,12 @@
 
             <action name="loginaction" class="loginAction">
                 <result name="user">/list.jsp</result>
+                <result name="manager">/manager/index.jsp</result>
                 <result name="restart">/login.jsp</result>
+            </action>
+
+            <action name="logoutaction" class="logoutAction">
+                <result name="out">/login.jsp</result>
             </action>
             
             <action name="listaction" class="listAction" method="list">
@@ -28,20 +33,8 @@
                 </result>
             </action>
 
-            <action name="order_index" class="orderAction" method="index">
-                <result name="login">
-                    /login.jsp
-                </result>
-                <result name="order">
-                    /order.jsp
-                </result>
-            </action>
-
-            <action name="listaction" class="listAction" method="list">
-                <result name="list">
-                    /list.jsp
-                </result>
-
+            <action name="addaction" class="listAction" method="addItem">
+                <result name="add">/reflushlist.jsp</result>
 
             </action>
         </package>
