@@ -58,7 +58,7 @@ public class BaseDaoImpl implements BaseDao {
     public <T> List<T> getAllEntity( String  entityName) {
         // TODO Auto-generated method stub
 
-        return (List<T>)this.hibernateTemplate.find("from" +  " "+ entityName );
+        return (List<T>)this.hibernateTemplate.find("from" + " "+ entityName );
 
         //return (List<T>)this.hibernateTemplate.find("from Product");
     }
@@ -71,7 +71,7 @@ public class BaseDaoImpl implements BaseDao {
 
     @Override
     public <T> void deleteEntityById(Class<T> entityClass, Serializable id) {
-        // TODO Auto-generated method stub
+
 
         this.hibernateTemplate.delete( this.getEntityById(entityClass, id) );
 
@@ -79,8 +79,6 @@ public class BaseDaoImpl implements BaseDao {
 
     @Override
     public <T> List<T> getbyPage(String hql, int pageNo, int pageSize ,int real ) {
-        // TODO Auto-generated method stub
-
         List<T> list = new ArrayList<T>();
 
         int begin =  (pageNo-1 )*pageSize;

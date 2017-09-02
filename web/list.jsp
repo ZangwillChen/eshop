@@ -1,45 +1,74 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+			  pageEncoding="UTF-8"%>
 <% String context = request.getContextPath(); %>
+-->
 
-
-<%@taglib uri="/struts-tags" prefix="s" %>
+<!-- <%@taglib uri="/struts-tags" prefix="s" %> -->
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>我的购物车</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/Buttons/2.0.0/css/buttons.css">
+
+	<title>商品</title>
+	<style type="text/css">
+		.container{
+			width: 960px;
+			margin: auto;
+			text-align: center;
+		}
+		.flex-box{
+			border: 1px solid #ccc;
+			margin-top: -1px;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+		}
+		.image{
+			display: inline-block;
+			width: 40px;
+			height: 30px;
+		}
+		.price{
+			color:red;
+			font-weight: bold;
+		}
+		.pages{
+			text-align: right;
+		}
+	</style>
 </head>
 <body>
-		<H1 align=center>
-		<a href="<%=context %>/find.jsp">搜索商品</a>&nbsp;&nbsp;
-		<BR>
-			本系统的所有商品列表如下：
-			<BR>
-			<BR>
-			<TABLE width=800 border=1>
-				<TBODY>
-					<TR height=50>
-						<TD>
+<div class="container">
+	<a href="<%=context %>/find.jsp">搜索商品</a>&nbsp;&nbsp;
+	<BR>
+	本系统的所有商品列表如下：
+	<BR>
+	<BR>
+	<div>
+		<div>
+			<div class="flex-box">
+						<span>
 							产品图片
-						</TD>
-						<TD>
+						</span>
+				<span>
 							产品名称
-						</TD>
-						<TD>
+						</span>
+				<span>
 							产品价格
-						</TD>
-						<TD>
+						</span>
+				<span>
 							产品描述
-						</TD>
-						<TD>
+						</span>
+				<span>
 							添加到购物车
-						</TD>
-					</TR>
-					<%-- <c:forEach var="p" items="${requestScope.products}">
-					<TR>
+						</span>
+			</div>
+			<!-- 					<%-- <c:forEach var="p" items="${requestScope.products}">
+					<div>
 						<TD>
 							${p.name}
 						</TD>
@@ -47,94 +76,93 @@
 							<A href="ListAction.do?method=addItem&productId=${p.id}">添加到购物车</A>
 						</TD>
 					</TR>
-					</c:forEach> --%>
-					
-					<s:iterator value ="goodslist" var="p">
-					<TR>
-						<TD>
-						
-						
-							
-					<!--  	<img  src="<c:url value='<%=context %>/from/showaction?imageUrl=${p.imageSrc }'/>"/> -->
-					
-					<!--  修改浏览器显示不了图片bug  -->
-					
-				<!-- 	<img src="${p.imageSrc }" style="height:60px; width:80px" />  -->
-				
-				<!-- 配置server。xml  客户端使用相对地址 -->
-				
-						<img src="<%=context %>/UploadImages/${p.imageSrc }" style="height:60px; width:80px" />
-							
-							
-						</TD>
-						
-						<TD>
+					</c:forEach> --%> -->
 
-						<s:property value="#p.name"/> |
-						</TD>
-						
-						<TD>
+			<s:iterator value ="goodsList" var="p">
+				<div class="flex-box">
+						<span>
 
-						<s:property value="#p.price"/> |
-						</TD>
-						
-						<TD>
 
-						<s:property value="#p.description"/> |
-						</TD>
-						
-						
-						<TD>
-						
-						
-						<a href="<%=context %>/from/addaction!addItem?productId=<s:property value="#p.id"/>">添加到购物车</a>
+
+					<!--  	<img  src="<c:url value='<%=context %>/from/showaction?imageUrl=${p.imgSrc }'/>"/> -->
+
+							<!--  修改浏览器显示不了图片bug  -->
+
+							<!-- 	<img src="${p.imgSrc }" style="height:60px; width:80px" />  -->
+
+							<!-- 配置server。xml  客户端使用相对地址 -->
+
+						<img class="image" src="<%=context %>/UploadImages/${p.imgSrc}" />
+
+
+						</span>
+
+					<span>
+
+						<s:property value="#p.goodName"/> |
+						</span>
+
+					<span class="price">
+
+						<s:property value="#p.goodPrice"/> |
+						</span>
+
+					<span>
+
+						<s:property value="#p.Description"/> |
+						</span>
+
+
+					<span>
+
+
+						<a href="<%=context %>/from/addaction!addItem?goodId=<s:property value="#p.id"/>">添加到购物车</a>
 						<%-- <a href="<%=context %>/admin/Category_updateinput?id=<s:property value="#c.id"/>">修改Category</a> --%>
-						</TD>
-					</TR>
-						</s:iterator>
-				</TBODY>
-			</TABLE>
-			
-			<!-- 2014.8.29 分页功能 -->
-				<BR>
-				
-				<s:set name="page" value="#request['page']" />
-				
-				<s:set name="maxpage" value="#request['maxpage']" />
-					
-				<s:if test="#page==1">首页</s:if>
-	
-				<s:if test="#page>1 "><a href="<%=context %>/from/listaction!list?page=1"> 首页</a></s:if>
-					
-				<s:if test="#page == 1 ">上一页</s:if>
-					
-				<s:if test="#page>1 "><a href="<%=context %>/from/listaction!list?page=${page-1}"> 上一页</a></s:if>
-					
-				<s:if test="#page ==#maxpage">下一页</s:if>
-					
-				<s:if test="#page< #maxpage "><a href="<%=context %>/from/listaction!list?page=${page + 1}"> 下一页</a></s:if>
-					
-				<s:if test="#page == #maxpage">末页</s:if>
-					
-				<s:if test="#page< #maxpage  "><a href="<%=context %>/from/listaction!list?page=${maxpage}">末页</a></s:if>
-					
-						
-			
-			
-			
-					
-			<BR>
-						
-			<a href="<%=context %>/from/cart_inedx!CartIndex">查看购物车</a>&nbsp;&nbsp;
-			<a href="<%=context %>/from/order_index!index">结帐</a>&nbsp;&nbsp;
-			<a href="<%=context %>/from/listaction!list?page=1"> 返回首页</a>&nbsp;&nbsp;
-			<a href="<%=context %>/from/loginaction">登录</a>&nbsp;&nbsp;
-			<a href="<%=context %>/userregister.jsp">注册</a>&nbsp;&nbsp;
-			
-			<!-- <A href="CartAction.do?method=index">查看购物车</A>&nbsp;&nbsp;
-			<A href="OrderAction.do?method=index">结账</A>&nbsp;&nbsp;
-			<A href="login.jsp">登录</A> -->
-		</H1>
+						</span>
+				</div>
+			</s:iterator>
+		</div>
+	</div>
+
+	<!-- 2014.8.29 分页功能 -->
+	<BR>
+	<div class="pages">
+		<s:set name="page" value="#request['page']" />
+
+		<s:set name="maxpage" value="#request['maxpage']" />
+
+		<s:if test="#page==1">首页</s:if>
+
+		<s:if test="#page>1 "><a class="button button-rounded button-tiny" href="<%=context %>/from/listaction!list?page=1"> 首页</a></s:if>
+
+		<s:if test="#page == 1 ">上一页</s:if>
+
+		<s:if test="#page>1 "><a class="button button-rounded button-tiny" href="<%=context %>/from/listaction!list?page=${page-1}"> 上一页</a></s:if>
+
+		<s:if test="#page ==#maxpage">下一页</s:if>
+
+		<s:if test="#page< #maxpage "><a class="button button-rounded button-tiny" href="<%=context %>/from/listaction!list?page=${page + 1}"> 下一页</a></s:if>
+
+		<s:if test="#page == #maxpage">末页</s:if>
+
+		<s:if test="#page< #maxpage  "><a class="button button-rounded button-tiny" href="<%=context %>/from/listaction!list?page=${maxpage}">末页</a></s:if>
+	</div>
+
+
+
+
+
+	<BR>
+	<div class="pages">
+		<a class="button button-primary button-rounded button-small" href="<%=context %>/from/listaction!list?page=1"> 返回首页</a>&nbsp;&nbsp;
+		<a class="button button-primary button-rounded button-small" href="<%=context %>/from/loginaction">登录</a>&nbsp;&nbsp;
+		<a class="button button-primary button-rounded button-small" href="<%=context %>/userregister.jsp">注册</a>&nbsp;&nbsp;
+
+		<!-- <A href="CartAction.do?method=index">查看购物车</A>&nbsp;&nbsp;
+        <A href="OrderAction.do?method=index">结账</A>&nbsp;&nbsp;
+        <A href="login.jsp">登录</A> -->
+	</div>
+</div>
 
 </body>
 </html>

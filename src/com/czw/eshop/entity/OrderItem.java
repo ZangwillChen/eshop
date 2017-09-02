@@ -15,9 +15,11 @@ public class OrderItem {
     private double cost;
 
     public OrderItem() {
+        super();
     }
 
     public OrderItem(int itemAmount, Goods goodID) {
+        super();
         this.itemAmount = itemAmount;
         this.goodID = goodID;
     }
@@ -47,7 +49,7 @@ public class OrderItem {
     }
 
     public double getCost() {
-        return cost;
+        return (goodID.getGoodPrice()*itemAmount);
     }
 
     public void setCost(double cost) {

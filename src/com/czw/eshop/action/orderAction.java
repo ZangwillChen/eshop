@@ -1,5 +1,6 @@
 package com.czw.eshop.action;
 
+import com.czw.eshop.entity.Cart;
 import com.czw.eshop.entity.Goods;
 import com.czw.eshop.entity.Order;
 import com.czw.eshop.entity.User;
@@ -71,33 +72,33 @@ public class orderAction extends ActionSupport {
 
         return ret;
     }
-    /*
+
 
     public String postOrder( ){
 
-        String ret = "buy";
-
-     //   goods g = this.goodsservice.getGood(goodID);
 
         this.request = ServletActionContext.getRequest();
 
         this.session = this.request.getSession();
 
-        user u = (user)this.session.getAttribute(constants.SESSION_USER);
+        User u = (User) this.session.getAttribute(constants.SESSION_USER);
 
-        order o = new order();
+        Cart cart = (Cart) this.session.getAttribute(constants.SESSION_CART);
+
+        Order o = new Order();
 
         o.setUser(u);
 
-
-
+        o.setItems(cart.getItems());
 
         o.setStatus(constants.ORDER_STATUS_POST);
+
+
 
         String orderNum = orderservice.generateOrder(o);
 
         this.request.setAttribute(constants.REQ_ORDER_NUMBER,orderNum);
 
         return "success";
-    }*/
+    }
 }

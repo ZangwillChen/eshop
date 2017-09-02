@@ -43,6 +43,11 @@ public class orderServiceImpl implements orderService {
     }
 
     @Override
+    public Order getOrderById(long orderID) {
+        return baseDao.getEntityById(Order.class,orderID);
+    }
+
+    @Override
     public void nextOrderStatus(long orderID) {
         Order order = baseDao.getEntityById(Order.class,orderID);
 

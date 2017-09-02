@@ -38,37 +38,37 @@
         <property name="hibernateTemplate" ref="hibernateTemplate" />
     </bean>
     <!-- 业务层 -->
-    <bean id="userService" class="com.czw.eshop.service.UserServiceImpl">
+    <bean id="userServiceTarget" class="com.czw.eshop.service.UserServiceImpl">
         <property name="userDao" ref="userDao"/>
     </bean>
-    <bean id="goodsService" class="com.czw.eshop.service.goodServiceImpl">
+    <bean id="goodsServiceTarget" class="com.czw.eshop.service.goodServiceImpl">
         <property name="baseDao" ref="baseDao"/>
     </bean>
-    <bean id="orderService" class="com.czw.eshop.service.orderServiceImpl">
+    <bean id="orderServiceTarget" class="com.czw.eshop.service.orderServiceImpl">
         <property name="baseDao" ref="baseDao"/>
     </bean>
     <!-- 表现层 -->
     <bean id="loginAction" class="com.czw.eshop.action.LoginAction" >
-        <property name="userService" ref="userService"/>
+        <property name="userService" ref="userServiceTarget"/>
     </bean>
     <bean id="listAction" class="com.czw.eshop.action.ListAction">
-        <property name="goodsService" ref="goodsService"/>
+        <property name="goodsService" ref="goodsServiceTarget"/>
     </bean>
     <bean id="orderAction" class="com.czw.eshop.action.orderAction">
-        <property name="orderservice" ref="orderService"/>
+        <property name="orderservice" ref="orderServiceTarget"/>
     </bean>
     <bean id="logoutAction" class="com.czw.eshop.action.LogoutAction">
     </bean>
     <bean id="registerAction" class="com.czw.eshop.action.RegisterAction">
-        <property name="userService" ref="userService"/>
+        <property name="userService" ref="userServiceTarget"/>
     </bean>
     <bean id="cartAction" class="com.czw.eshop.action.CartAction">
     </bean>
     <bean id="managerAction" class="com.czw.eshop.action.ManageAction">
-        <property name="orderService" ref="orderService"/>
+        <property name="orderService" ref="orderServiceTarget"/>
     </bean>
     <bean id="goodsAction" class="com.czw.eshop.action.goodsAction">
-        <property name="goodsservice" ref="goodsService"/>
+        <property name="goodsservice" ref="goodsServiceTarget"/>
     </bean>
 
 

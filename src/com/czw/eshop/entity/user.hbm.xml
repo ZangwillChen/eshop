@@ -5,7 +5,9 @@
 <hibernate-mapping>
 
     <class name="com.czw.eshop.entity.User" table="tb_u" schema="shop">
-        <id name="userID" column="u_id"/>
+        <id name="userID" column="u_id">
+            <generator class="increment"/>
+        </id>
         <property name="userName" column="u_name"/>
         <property name="userPwd" column="u_pwd"/>
         <property name="userAddr" column="u_addr"/>

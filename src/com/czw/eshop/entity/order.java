@@ -17,9 +17,11 @@ public class Order {
     private Map<Long,OrderItem> items = new HashMap<Long,OrderItem>();
 
     public Order() {
+        super();
     }
 
     public Order(int status, User user) {
+        super();
         this.status = status;
         this.user = user;
     }

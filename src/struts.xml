@@ -18,26 +18,109 @@
         <package name="from" namespace="/from" extends="struts-default">
 
             <action name="loginaction" class="loginAction">
-                <result name="user">/list.jsp</result>
+                <result name="user">/index-user.jsp</result>
                 <result name="manager">/manager/index.jsp</result>
                 <result name="restart">/login.jsp</result>
             </action>
 
             <action name="logoutaction" class="logoutAction">
-                <result name="out">/login.jsp</result>
+                <result name="out">/index.jsp</result>
             </action>
             
             <action name="listaction" class="listAction" method="list">
-                <result>
-                    /list.jsp
-                </result>
+                <result name="list">/list.jsp</result>
+            </action>
+            <action name="userlistaction" class="listAction" method="userlist">
+                <result name="list">/userlist.jsp</result>
             </action>
 
             <action name="addaction" class="listAction" method="addItem">
                 <result name="add">/reflushlist.jsp</result>
-
+                <result name="find">/reflushfind.jsp</result>
             </action>
+
+
+            <action name="cart_index" class="cartAction" method="CartIndex">
+                <result name="cart">/cart.jsp</result>
+            </action>
+            <action name="cart_modify" class="cartAction" method="modifyItemNumber">
+                <result name="cart">/cart.jsp</result>
+            </action>
+            <action name="cart_delete" class="cartAction" method="deleteItem">
+                <result name="cart">/cart.jsp</result>
+            </action>
+            <action name="cart_clear" class="cartAction" method="clear" >
+                <result name="cart">/cart.jsp</result>
+            </action>
+
+
+            <action name="cart_post" class="orderAction" method="postOrder">
+                <result name="success">/success.jsp</result>
+            </action>
+
+            <action name="user_register" class="registerAction" method="userRegister">
+                <result name="reset">/userregister.jsp</result>
+                <result name="verify">/registerminder.jsp</result>
+            </action>
+
+            <action name="user_save" class="registerAction" method="userSave">
+                <result name="save">/login.jsp</result>
+            </action>
+            <action name="order_index" class="orderAction" method="index">
+                <result name="login">/login.jsp</result>
+                <result name="order">/order.jsp</result>
+            </action>
+
+            <action name="user_code" class="registerAction" method="code"></action>
+
         </package>
+
+    <package name="manager" namespace="/manager" extends="struts-default">
+        <action name="manager" class="managerAction" method="index">
+            <result name="manager">/manager/manager.jsp</result>
+        </action>
+
+        <action name="nextaction" class="managerAction" method="next">
+            <result name="next">
+                /manager/flush.jsp
+            </result>
+        </action>
+
+        <action name="addgood" class="goodsAction" method="addGood">
+            <result name="success">
+                /manager/index.jsp
+            </result>
+        </action>
+
+        <action name="listgood" class="goodsAction" method="goodslist">
+            <result name="list">
+                /manager/goodlist.jsp
+            </result>
+        </action>
+
+
+        <action name="update" class="goodsAction" method="updateGood">
+            <result name="update">
+                /manager/updategood.jsp
+            </result>
+        </action>
+
+
+        <action name="save" class="goodsAction" method="saveGood">
+            <result name="save">
+                /manager/reflush.jsp
+            </result>
+        </action>
+
+
+
+        <action name="delete" class="goodsAction" method="deleteGood">
+            <result name="delete">
+                /manager/reflush.jsp
+            </result>
+        </action>
+
+    </package>
 
 
 </struts>

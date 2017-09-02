@@ -2,6 +2,7 @@ package com.czw.eshop.action;
 
 import com.czw.eshop.entity.Cart;
 import com.czw.eshop.entity.Goods;
+import com.czw.eshop.entity.User;
 import com.czw.eshop.service.UserService;
 import com.czw.eshop.service.constants;
 import com.czw.eshop.service.goodsService;
@@ -80,6 +81,29 @@ public class ListAction extends ActionSupport {
     }
 
     public String list(){
+
+        this.request = ServletActionContext.getRequest();
+        int maxpage = goodsService.maxsize();
+
+        int pageNo  =1;
+
+        int pageSize = 5;
+
+        if( page >  0 )
+        {
+            pageNo = page;
+        }
+
+        goodsList = this.goodsService.getByPage(pageNo,pageSize);
+
+        request.setAttribute("page",pageNo);
+
+        request.setAttribute("maxpage",maxpage);
+
+        return "list";
+    }
+
+    public String userlist(){
         this.request = ServletActionContext.getRequest();
         int maxpage = goodsService.maxsize();
 

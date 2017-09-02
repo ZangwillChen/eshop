@@ -1,0 +1,40 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.container{
+    width: 960px;
+    border: 1px solid #ccc;
+    margin: auto;
+
+}
+.btn-container{
+    width: 960px;
+    justify-content: space-around;
+    margin:auto;
+
+}
+.cart-box{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.cart-title{
+    margin-bottom: 20px;
+}
+.price{
+    color: red;
+    font-weight: bold;
+}
+
+.total{
+    margin-top: 20PX;
+    float: right;
+    margin-right: 10PX;
+}
+
+span{
+    /*border: 1px solid red;*/
+}

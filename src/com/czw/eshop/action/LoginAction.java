@@ -76,11 +76,11 @@ public class LoginAction extends ActionSupport {
         else {
             this.session.setAttribute(constants.SESSION_USER,user);
 
-            if (user instanceof Admin) {
+            if (user.getUserType().equals("manager")) {
 
                 ret = "manager";
             }
-            else {
+            else if (user.getUserType().equals("customer")){
                 ret = "user";
             }
         }

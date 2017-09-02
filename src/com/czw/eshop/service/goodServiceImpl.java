@@ -27,7 +27,7 @@ public class goodServiceImpl implements goodsService {
 
     @Override
     public List<Goods> getAllGoods() {
-        return baseDao.getAllEntity("goods");
+        return baseDao.getAllEntity("Goods");
 
     }
 
@@ -49,7 +49,7 @@ public class goodServiceImpl implements goodsService {
     @Override
     public List<Goods> getByPage(int pageNo, int pageSize) {
 
-        String hql = "from goods";
+        String hql = "from Goods ";
 
         int real = baseDao.realPage(hql);
 

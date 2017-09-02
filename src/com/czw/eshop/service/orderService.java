@@ -13,5 +13,7 @@ public interface orderService {
 
     public List<Order> getAllOrder();
 
+    public Order getOrderById(long orderID);
+
     public void nextOrderStatus(long orderID);
 }

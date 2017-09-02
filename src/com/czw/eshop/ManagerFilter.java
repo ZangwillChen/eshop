@@ -1,6 +1,6 @@
 package com.czw.eshop;
 
-import com.czw.eshop.entity.user;
+import com.czw.eshop.entity.User;
 import com.czw.eshop.service.constants;
 import org.apache.struts2.dispatcher.ng.filter.FilterHostConfig;
 
@@ -43,7 +43,7 @@ public class ManagerFilter implements Filter {
         }
 
         else if (session.getAttribute(constants.SESSION_USER) != null){
-            user u = (user)session.getAttribute(constants.SESSION_USER);
+            User u = (User) session.getAttribute(constants.SESSION_USER);
 
             System.out.println(u.getUserName());
 

@@ -5,16 +5,18 @@
 <hibernate-mapping>
 
     <class name="com.czw.eshop.entity.Order" table="tb_order" schema="shop">
-        <id name="orderID" column="o_id"/>
+        <id name="orderID" column="o_id">
+            <generator class="increment"/>
+        </id>
         <property name="orderName" column="orderName"/>
         <property name="status" column="o_status"/>
         <many-to-one name="user" class="com.czw.eshop.entity.User" column="u_id"
                      cascade="none" lazy="false"/>
         <property name="orderPrice" column="cost"/>
 
-        <map name="items" table="tb_order" lazy="false" cascade="all" order-by="goodID">
-            <key column="o_id"></key>
-            <map-key column="g_id" type="java.lang.Long"/>
+        <map name="items" table="tb_order_item" lazy="false" cascade="all" order-by="goodID">
+            <key column="order_id"></key>
+            <map-key column="good_id" type="java.lang.Long"/>
             <one-to-many class="com.czw.eshop.entity.OrderItem"/>
         </map>
     </class>

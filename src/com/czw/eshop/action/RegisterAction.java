@@ -55,7 +55,7 @@ public class RegisterAction extends ActionSupport implements ModelDriven{
 
     public String userRegister(){
 
-        String rand = (String) request.getSession().getAttribute("rand");
+      //  String rand = (String) request.getSession().getAttribute("rand");
 
         session = (Map)ActionContext.getContext().getSession();
 
@@ -64,9 +64,9 @@ public class RegisterAction extends ActionSupport implements ModelDriven{
         if (userDTO.getUserPwd1() != userDTO.getUserPwd2()){
             ret = "reset";
         }
-        else if ((!rand.equals(userDTO.getRand()))||userDTO.getRand() == null){
-            ret = "reset";
-        }
+    //    else if ((!rand.equals(userDTO.getRand()))||userDTO.getRand() == null){
+      //      ret = "reset";
+      //  }
         else if (userDTO.getUserName()!=null){
 
             user1.setUser(userDTO);
