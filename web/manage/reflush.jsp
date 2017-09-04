@@ -8,6 +8,6 @@
     <title>reflush</title>
 </head>
 <body>
-<meta http-equiv='refresh' content='0;url=<%=context %>/manager/listgood'>
+<meta http-equiv='refresh' content='0;url=<%=context %>/manage/listgood'>
 </body>
 </html>

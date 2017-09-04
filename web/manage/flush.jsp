@@ -8,7 +8,7 @@
     <title>Insert title here</title>
 </head>
 <body>
-<meta http-equiv='refresh' content='0;url=<%=context %>/manager/manager!index'>
+<meta http-equiv='refresh' content='0;url=<%=context %>/manage/manager!index'>
 
 </body>
 </html>

@@ -13,7 +13,7 @@ public class GoodsDTO {
 
     private String description;
 
-    private String inventory;
+    private int inventory;
 
     private File file;
 
@@ -21,7 +21,7 @@ public class GoodsDTO {
     }
 
 
-    public GoodsDTO(String name, double price, String description, String inventory, File file) {
+    public GoodsDTO(String name, double price, String description, int inventory, File file) {
         this.name = name;
         this.price = price;
         this.description = description;
@@ -61,11 +61,11 @@ public class GoodsDTO {
         this.file = file;
     }
 
-    public String getInventory() {
+    public int getInventory() {
         return inventory;
     }
 
-    public void setInventory(String inventory) {
+    public void setInventory(int inventory) {
         this.inventory = inventory;
     }
 }

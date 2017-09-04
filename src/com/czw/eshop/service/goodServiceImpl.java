@@ -33,7 +33,7 @@ public class goodServiceImpl implements goodsService {
 
     @Override
     public void addGoods(Goods good) {
-        this.baseDao.updateEntity(good);
+        this.baseDao.saveEntity(good);
     }
 
     @Override

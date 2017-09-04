@@ -93,8 +93,6 @@ public class orderAction extends ActionSupport {
 
         o.setStatus(constants.ORDER_STATUS_POST);
 
-
-
         String orderNum = orderservice.generateOrder(o);
 
         this.request.setAttribute(constants.REQ_ORDER_NUMBER,orderNum);

@@ -1,6 +1,5 @@
 package com.czw.eshop.action;
 
-import com.czw.eshop.entity.Admin;
 import com.czw.eshop.service.constants;
 import com.opensymphony.xwork2.ActionSupport;
 

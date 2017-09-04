@@ -23,6 +23,12 @@ public class Cart {
         OrderItem itemSelected = new OrderItem(number,good);
 
         items.put(good.getGoodID(),itemSelected);
+
+        //int Inv = good.getInventory();
+
+        //Inv = Inv - 1;
+
+       // good.setInventory(Inv);
     }
 
     //修改商品数量

@@ -19,11 +19,11 @@
 
             <action name="loginaction" class="loginAction">
                 <result name="user">/index-user.jsp</result>
-                <result name="manager">/manager/index.jsp</result>
+                <result name="manager">/manage/index.jsp</result>
                 <result name="restart">/login.jsp</result>
             </action>
 
-            <action name="logoutaction" class="logoutAction">
+            <action name="logoutaction" class="logoutAction" method="execute">
                 <result name="out">/index.jsp</result>
             </action>
             
@@ -39,6 +39,7 @@
                 <result name="find">/reflushfind.jsp</result>
             </action>
 
+            <action name="showaction" class="listAction" method="showImage"/>
 
             <action name="cart_index" class="cartAction" method="CartIndex">
                 <result name="cart">/cart.jsp</result>
@@ -59,8 +60,8 @@
             </action>
 
             <action name="user_register" class="registerAction" method="userRegister">
-                <result name="reset">/userregister.jsp</result>
-                <result name="verify">/registerminder.jsp</result>
+                <result name="reset">/fail.jsp</result>
+                <result name="verify">/registerreminder.jsp</result>
             </action>
 
             <action name="user_save" class="registerAction" method="userSave">
@@ -75,40 +76,40 @@
 
         </package>
 
-    <package name="manager" namespace="/manager" extends="struts-default">
+    <package name="manager" namespace="/manage" extends="struts-default">
         <action name="manager" class="managerAction" method="index">
-            <result name="manager">/manager/manager.jsp</result>
+            <result name="manager">/manage/manager.jsp</result>
         </action>
 
         <action name="nextaction" class="managerAction" method="next">
             <result name="next">
-                /manager/flush.jsp
+                /manage/flush.jsp
             </result>
         </action>
 
         <action name="addgood" class="goodsAction" method="addGood">
             <result name="success">
-                /manager/index.jsp
+                /manage/index.jsp
             </result>
         </action>
 
         <action name="listgood" class="goodsAction" method="goodslist">
             <result name="list">
-                /manager/goodlist.jsp
+                /manage/goodlist.jsp
             </result>
         </action>
 
 
         <action name="update" class="goodsAction" method="updateGood">
             <result name="update">
-                /manager/updategood.jsp
+                /manage/updategood.jsp
             </result>
         </action>
 
 
         <action name="save" class="goodsAction" method="saveGood">
             <result name="save">
-                /manager/reflush.jsp
+                /manage/reflush.jsp
             </result>
         </action>
 

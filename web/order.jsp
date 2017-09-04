@@ -1,10 +1,10 @@
-<!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
               pageEncoding="UTF-8"%>
 <% String context = request.getContextPath(); %>
 
 <%@taglib uri="/struts-tags" prefix="s" %>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,6 +32,13 @@
             flex-direction: row;
             flex-wrap: nowrap;
             justify-content: space-between;
+        }
+        .cart-box span{
+            width: 20%;
+            padding: 2px;
+            /*border: 1px solid red;*/
+            word-break: break-all;
+            text-align: center;
         }
 
         .cart-title{
@@ -76,13 +83,13 @@
             <c:forEach var="item" items="${sessionScope.cart.items}">
                 <div class="cart-box">
 						<span >
-                                ${item.value.product.name }
+                                ${item.value.goodID.goodName }
                         </span>
                     <span >
-                            ${item.value.product.price }
+                            ${item.value.goodID.goodPrice }
                     </span>
                     <span >
-                            ${item.value.number }
+                            ${item.value.itemAmount }
                     </span>
                     <span class="price">
                             ${item.value.cost }
@@ -110,7 +117,7 @@
                     姓名：
                 </TD>
                 <TD width=383>
-                    <INPUT value="${sessionScope.user.name }" name="name">
+                    <INPUT value="${sessionScope.user.userName }" name="name">
                 </TD>
             </TR>
             <TR>
@@ -118,23 +125,16 @@
                     地址：
                 </TD>
                 <TD>
-                    <INPUT value="${sessionScope.user.address }" name="address">
+                    <INPUT value="${sessionScope.user.userAddr }" name="address">
                 </TD>
             </TR>
-            <TR>
-                <TD height=24>
-                    邮政编码：
-                </TD>
-                <TD>
-                    <INPUT value="${sessionScope.user.postCode }" name="postCode">
-                </TD>
-            </TR>
+
             <TR>
                 <TD height=23>
                     E-mail：
                 </TD>
                 <TD>
-                    <INPUT value="${sessionScope.user.email }" name="email">
+                    <INPUT value="${sessionScope.user.userEmail }" name="email">
                 </TD>
             </TR>
             <TR>
@@ -142,7 +142,7 @@
                     联系电话：
                 </TD>
                 <TD>
-                    <INPUT value="${sessionScope.user.cellPhone }" name="phone">
+                    <INPUT value="${sessionScope.user.userPhone }" name="phone">
                 </TD>
             </TR>
             </TBODY>
@@ -153,12 +153,12 @@
                 <div align="right">
 						<span >
 							<INPUT
-                                    class="button button-primary button-rounded button-small" onclick="javascript:location.href='listaction?method=list'"
+                                    class="button button-primary button-rounded button-small" onclick="javascript:location.href='userlistaction?method=userlist'"
                                     type=button value="继续购物" name=Submit42>
 						</span>
                     <span >
 							<INPUT
-                                    class="button button-primary button-rounded button-small" onclick="javascript:location.href='cart_inedx?method=CartIndex'"
+                                    class="button button-primary button-rounded button-small" onclick="javascript:location.href='cart_index?method=CartIndex'"
                                     type=button value="回到购物车" name=Submit42>
 						</span>
                     <span >

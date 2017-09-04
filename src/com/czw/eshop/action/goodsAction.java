@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by chenzhaowen on 2017/8/26.
  */
-public class goodsAction extends ActionSupport  {
+public class goodsAction extends ActionSupport implements ModelDriven {
 
     private goodsService goodsservice;
 
@@ -39,6 +39,11 @@ public class goodsAction extends ActionSupport  {
     private int maxpage;
 
     private long goodID;
+
+    @Override
+    public Object getModel() {
+        return goodsDTO;
+    }
 
     public goodsService getGoodsservice() {
         return goodsservice;
@@ -96,13 +101,7 @@ public class goodsAction extends ActionSupport  {
 
         good.setImgSrc(imagePath);
 
-        good.setGoodName(goodsDTO.getName());
-
-        good.setGoodPrice(goodsDTO.getPrice());
-
-        good.setInventory(goodsDTO.getInventory());
-
-        good.setDescription(goodsDTO.getDescription());
+        good.set(goodsDTO);
 
         goodsservice.addGoods(good);
 
@@ -111,6 +110,8 @@ public class goodsAction extends ActionSupport  {
 
     public String updateGood(){
         updateGood = this.goodsservice.getGood(goodID);
+
+        this.saveGood();
 
         return "update";
     }
@@ -126,6 +127,8 @@ public class goodsAction extends ActionSupport  {
         updateGood.setDescription(goodsDTO.getDescription());
 
         updateGood.setImgSrc(imagepath);
+
+        System.out.println(updateGood.getGoodName());
 
         this.goodsservice.updateGood(updateGood);
 

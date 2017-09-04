@@ -45,6 +45,15 @@ public class ListAction extends ActionSupport {
 
     private int maxpage;
 
+    private String imageUrl;
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
     private int type;
 
@@ -156,6 +165,17 @@ public class ListAction extends ActionSupport {
             type = 0;
         }
         return ret;
+    }
+
+    public void showImage(){
+
+        request = ServletActionContext.getRequest();
+
+        response = ServletActionContext.getResponse();
+
+        String url = imageUrl.substring(0,imageUrl.length()-3);
+
+        com.czw.eshop.util.ZipImage.zip(request,response,url);
     }
 
 

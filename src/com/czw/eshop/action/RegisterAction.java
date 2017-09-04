@@ -55,26 +55,36 @@ public class RegisterAction extends ActionSupport implements ModelDriven{
 
     public String userRegister(){
 
-      //  String rand = (String) request.getSession().getAttribute("rand");
-
         session = (Map)ActionContext.getContext().getSession();
+
+        String rand = (String) request.getSession().getAttribute("rand");
+
+        System.out.println("验证码"+rand);
 
         String ret = "";
 
-        if (userDTO.getUserPwd1() != userDTO.getUserPwd2()){
+        if (!userDTO.getUserPwd1().equals(userDTO.getUserPwd2())){
+
+            System.out.println("密码错误");
+
             ret = "reset";
         }
-    //    else if ((!rand.equals(userDTO.getRand()))||userDTO.getRand() == null){
-      //      ret = "reset";
-      //  }
+        else if ((!rand.equals(userDTO.getRand())) || userDTO.getRand() == null){
+            System.out.println("验证码错误");
+            ret = "reset";
+        }
         else if (userDTO.getUserName()!=null){
 
-            user1.setUser(userDTO);
-            session.put(user1.getUserName(),user1);
+            user1.set(userDTO);
+
+            userService.add(user1);
+
+          //  session.put(user1.getUserName(),user1);
 
             ret = "verify";
         }
         else {
+            System.out.println("神秘错误");
             ret = "reset";
         }
         return ret;

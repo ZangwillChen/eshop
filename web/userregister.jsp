@@ -1,7 +1,7 @@
-<!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
               pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<% String context = request.getContextPath(); %> -->
+<% String context = request.getContextPath(); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -210,30 +210,43 @@
             <form class="form-horizontal" action="<%=context %>/from/user_register" method="post">
                 <span class="heading">用户注册</span>
                 <div class="form-group">
-                    <input class="form-control"  type="text" name="name" placeholder="用户名">
+                    <input class="form-control"  type="text" name="userName" placeholder="用户名">
                     <i class="fa fa-user"></i>
                 </div>
                 <div class="form-group help">
-                    <input type="password" class="form-control" name="password1" placeholder="密　码">
+                    <input type="password" class="form-control" name="userPwd1" placeholder="密　码">
                     <i class="fa fa-lock"></i>
                     <a href="#" class="fa fa-question-circle"></a>
                 </div>
 
                 <div class="form-group help">
-                    <input type="password" class="form-control" name="password2" placeholder="确认密码">
+                    <input type="password" class="form-control" name="userPwd2" placeholder="确认密码">
                     <i class="fa fa-lock"></i>
                     <a href="#" class="fa fa-question-circle"></a>
                 </div>
 
                 <div class="form-group">
-                    <input class="form-control"  type="text" name="address" placeholder="地址">
+                    <input class="form-control"  type="text" name="userAddr" placeholder="地址">
                     <i class="fa fa-user"></i>
                 </div>
 
                 <div class="form-group">
-                    <input class="form-control"  type="text" name="email" placeholder="电子邮箱">
+                    <input class="form-control"  type="text" name="userEmail" placeholder="电子邮箱">
                     <i class="fa fa-user"></i>
                 </div>
+
+                <div class="form-group">
+                    <input class="form-control"  type="text" name="userPhone" placeholder="手机号码">
+                    <i class="fa fa-user"></i>
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control"  type="text" name="rand" placeholder="验证码">
+                    <i class="fa fa-user"></i>
+                </div>
+
+                <img  src="<c:url value="/from/user_code"/>"/>
+
                 <!-- 后面的不写拉，没必要写这么多 -->
 
                 <div class="form-group">
@@ -242,7 +255,7 @@
                                             <label for="checkbox1"></label>
                                         </div>
                                         <span class="text">Remember me</span> -->
-                    <button type="submit" class="btn btn-default reg-btn" >注册</button>
+                    <input type="submit" class="btn btn-default reg-btn" value="注册"/>
                 </div>
             </form>
         </div>

@@ -1,9 +1,8 @@
-<!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 			  pageEncoding="UTF-8"%>
 <% String context = request.getContextPath(); %>
--->
 
-<!-- <%@taglib uri="/struts-tags" prefix="s" %> -->
+<%@taglib uri="/struts-tags" prefix="s" %>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -27,6 +26,12 @@
 			flex-wrap: nowrap;
 			justify-content: space-between;
 		}
+		.flex-box span{
+			width: 16%;
+			display: block;
+			text-align: center;
+			padding: 2px;
+		}
 		.image{
 			display: inline-block;
 			width: 40px;
@@ -35,6 +40,7 @@
 		.price{
 			color:red;
 			font-weight: bold;
+			font-size: 120%;
 		}
 		.pages{
 			text-align: right;
@@ -43,11 +49,8 @@
 </head>
 <body>
 <div class="container">
-	<a href="<%=context %>/find.jsp">搜索商品</a>&nbsp;&nbsp;
-	<BR>
-	本系统的所有商品列表如下：
-	<BR>
-	<BR>
+	<!-- <a href="<%=context %>/find.jsp">搜索商品</a>&nbsp;&nbsp; -->
+	<h3>商品列表</h3>
 	<div>
 		<div>
 			<div class="flex-box">
@@ -63,9 +66,9 @@
 				<span>
 							产品描述
 						</span>
-				<span>
-							添加到购物车
-						</span>
+				<!-- 				<span>
+                                            添加到购物车
+                                        </span> -->
 			</div>
 			<!-- 					<%-- <c:forEach var="p" items="${requestScope.products}">
 					<div>
@@ -84,41 +87,26 @@
 
 
 
-					<!--  	<img  src="<c:url value='<%=context %>/from/showaction?imageUrl=${p.imgSrc }'/>"/> -->
-
-							<!--  修改浏览器显示不了图片bug  -->
-
-							<!-- 	<img src="${p.imgSrc }" style="height:60px; width:80px" />  -->
-
-							<!-- 配置server。xml  客户端使用相对地址 -->
-
-						<img class="image" src="<%=context %>/UploadImages/${p.imgSrc}" />
+						<img class="image" src="<%=context %>from/showaction?imageUrl=${p.imgSrc}" />
 
 
 						</span>
 
 					<span>
 
-						<s:property value="#p.goodName"/> |
+						<s:property value="#p.goodName"/>
 						</span>
 
 					<span class="price">
 
-						<s:property value="#p.goodPrice"/> |
+						<s:property value="#p.goodPrice"/>
 						</span>
 
 					<span>
 
-						<s:property value="#p.Description"/> |
+						<s:property value="#p.Description"/>
 						</span>
 
-
-					<span>
-
-
-						<a href="<%=context %>/from/addaction!addItem?goodId=<s:property value="#p.id"/>">添加到购物车</a>
-						<%-- <a href="<%=context %>/admin/Category_updateinput?id=<s:property value="#c.id"/>">修改Category</a> --%>
-						</span>
 				</div>
 			</s:iterator>
 		</div>

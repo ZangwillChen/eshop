@@ -34,7 +34,9 @@ public class LogoutAction extends ActionSupport {
 
         logger.info(user1.getUserName()+" 已登出");
 
-        this.session.removeAttribute(constants.SESSION_USER);
+       // this.session.removeAttribute(constants.SESSION_USER);
+
+        this.session.invalidate();
 
         return "out";
 

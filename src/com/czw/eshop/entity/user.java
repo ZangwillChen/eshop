@@ -105,6 +105,18 @@ public class User {
         this.userType = userType;
     }
 
+
+    public void set(UserDTO userDTO){
+
+        this.userName = userDTO.getUserName();
+        this.userPwd = userDTO.getUserPwd1();
+        this.userAddr = userDTO.getUserAddr();
+        this.userEmail = userDTO.getUserEmail();
+        this.userPhone = userDTO.getUserPhone();
+        this.userType = "customer";
+
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

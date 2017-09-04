@@ -1,4 +1,4 @@
-<!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
               pageEncoding="UTF-8"%>
 <% String context = request.getContextPath(); %>
 
@@ -49,9 +49,20 @@
         }
         .cart-box{
             display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
+            /*flex-direction: row;*/
+            flex-wrap: wrap;
             justify-content: space-between;
+        }
+
+        .cart-box span{
+
+            width: 17%;
+            padding: 2px;
+            display: block;
+            text-align: center;
+            border: 1px solid red;
+            word-break:break-all;
+            /*word-warp:break-word;*/
         }
 
         .cart-title{
@@ -60,6 +71,7 @@
         .price{
             color: red;
             font-weight: bold;
+            font-size: 120%;
         }
 
         .total{
@@ -68,9 +80,6 @@
             margin-right: 10PX;
         }
 
-        span{
-            /*border: 1px solid red;*/
-        }
 
     </style>
 </head>

@@ -1,9 +1,8 @@
-<!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
               pageEncoding="UTF-8"%>
 <% String context = request.getContextPath(); %>
--->
 
-<!-- <%@taglib uri="/struts-tags" prefix="s" %> -->
+ <%@taglib uri="/struts-tags" prefix="s" %>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -14,6 +13,10 @@
 
     <title>商品</title>
     <style type="text/css">
+        body{
+            font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+
+        }
         .container{
             width: 960px;
             margin: auto;
@@ -27,6 +30,13 @@
             flex-wrap: nowrap;
             justify-content: space-between;
         }
+        .flex-box span{
+            width: 16%;
+            padding: 2px;
+            display: block;
+            text-align: center;
+            word-break: break-all;
+        }
         .image{
             display: inline-block;
             width: 40px;
@@ -39,16 +49,30 @@
         .pages{
             text-align: right;
         }
+        .title{
+            padding-top: 10px;
+        }
+        .add{
+            font-size: 120%;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            padding: 5px;
+        }
+        span:hover{
+            font-size: 120%;
+        }
+        .add:hover{
+            font-size: 120%;
+            color: red;
+        }
     </style>
 </head>
 <body>
 <meta content='0;url=<%=context %>/from/userlistaction!userlist'>
 <div class="container">
-    <a href="<%=context %>/find.jsp">搜索商品</a>&nbsp;&nbsp;
-    <BR>
-    本系统的所有商品列表如下：
-    <BR>
-    <BR>
+    <!-- <a href="<%=context %>/find.jsp">搜索商品</a>&nbsp;&nbsp; -->
+    <p class="title">商品列表</p>
     <div>
         <div>
             <div class="flex-box">
@@ -100,25 +124,25 @@
 
                     <span>
 
-						<s:property value="#p.goodName"/> |
+						<s:property value="#p.goodName"/>
 						</span>
 
                     <span class="price">
 
-						<s:property value="#p.goodPrice"/> |
+						<s:property value="#p.goodPrice"/>
 						</span>
 
                     <span>
 
-						<s:property value="#p.Description"/> |
+						<s:property value="#p.Description"/>
 						</span>
 
 
                     <span>
 
 
-						<a href="<%=context %>/from/addaction!addItem?goodID=<s:property value="#p.goodID"/>">添加到购物车</a>
-						<%-- <a href="<%=context %>/admin/Category_updateinput?id=<s:property value="#c.id"/>">修改Category</a> --%>
+						<a class="add" href="<%=context %>/from/addaction!addItem?goodID=<s:property value='#p.goodID'/>">+</a>
+                        <!-- 						<%-- <a href="<%=context %>/admin/Category_updateinput?id=<s:property value="#c.id"/>">修改Category</a> --%> -->
 						</span>
                 </div>
             </s:iterator>
@@ -134,19 +158,19 @@
 
         <s:if test="#page==1">首页</s:if>
 
-        <s:if test="#page>1 "><a class="button button-rounded button-tiny" href="<%=context %>/from/listaction!list?page=1"> 首页</a></s:if>
+        <s:if test="#page>1 "><a class="button button-rounded button-tiny" href="<%=context %>/from/userlistaction!userlist?page=1"> 首页</a></s:if>
 
         <s:if test="#page == 1 ">上一页</s:if>
 
-        <s:if test="#page>1 "><a class="button button-rounded button-tiny" href="<%=context %>/from/listaction!list?page=${page-1}"> 上一页</a></s:if>
+        <s:if test="#page>1 "><a class="button button-rounded button-tiny" href="<%=context %>/from/userlistaction!userlist?page=${page-1}"> 上一页</a></s:if>
 
         <s:if test="#page ==#maxpage">下一页</s:if>
 
-        <s:if test="#page< #maxpage "><a class="button button-rounded button-tiny" href="<%=context %>/from/listaction!list?page=${page + 1}"> 下一页</a></s:if>
+        <s:if test="#page< #maxpage "><a class="button button-rounded button-tiny" href="<%=context %>/from/userlistaction!userlist?page=${page + 1}"> 下一页</a></s:if>
 
         <s:if test="#page == #maxpage">末页</s:if>
 
-        <s:if test="#page< #maxpage  "><a class="button button-rounded button-tiny" href="<%=context %>/from/listaction!list?page=${maxpage}">末页</a></s:if>
+        <s:if test="#page< #maxpage  "><a class="button button-rounded button-tiny" href="<%=context %>/from/userlistaction!userlist?page=${maxpage}">末页</a></s:if>
     </div>
 
 
@@ -157,7 +181,7 @@
     <div class="pages">
         <a class="button button-primary button-rounded button-small" href="<%=context %>/from/cart_index!CartIndex">查看购物车</a>&nbsp;&nbsp;
         <a class="button button-primary button-rounded button-small" href="<%=context %>/from/order_index!index">结帐</a>&nbsp;&nbsp;
-        <a class="button button-primary button-rounded button-small" href="<%=context %>/from/logoutaction">退出登录</a>&nbsp;&nbsp;
+        <a class="button button-primary button-rounded button-small" href="<%=context %>/from/logoutaction!execute">退出登录</a>&nbsp;&nbsp;
         <a class="button button-primary button-rounded button-small" href="<%=context %>/from/userlistaction!userlist?page=1"> 返回首页</a>&nbsp;&nbsp;
 
         <!-- <A href="CartAction.do?method=index">查看购物车</A>&nbsp;&nbsp;

@@ -45,7 +45,7 @@ public class GoodTest {
 
         goods.setGoodName("水杯");
 
-        goods.setInventory("20");
+        goods.setInventory(20);
 
         goods.setImgSrc("/User/chenzhaowen/Desktop/shuibei.jpg");
 
@@ -76,7 +76,7 @@ public class GoodTest {
 
         goods.setGoodPrice(88);
 
-        goods.setInventory("100");
+        goods.setInventory(100);
 
         Service.updateGood(goods);
     }

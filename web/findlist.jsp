@@ -28,12 +28,14 @@
             margin-top: -1px;
             display: flex;
             flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: space-between;
+            /*            flex-wrap: nowrap;
+            */            justify-content: space-between;
         }
         .flex-box span{
             /*		border: 1px solid red;
             */
+            width: 25%;
+            word-break: break-all;
         }
 
         .image{
@@ -83,11 +85,11 @@
 						</span>
 
                     <span>
-						<s:property value="#p.name"/> | p.name
+						<s:property value="#p.name"/>
 						</span>
 
                     <span>
-						<a href="<%=context %>/from/addaction!addItem?type=1&productId=<s:property value="#p.id"/>">添加到购物车</a>
+						<a href="<%=context %>/from/addaction!addItem?type=1&productId=<s:property value='#p.id'/>">添加到购物车</a>
 						<%-- <a href="<%=context %>/admin/Category_updateinput?id=<s:property value="#c.id"/>">修改Category</a> --%>
 						</span>
                 </div>

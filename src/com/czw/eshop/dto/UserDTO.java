@@ -78,4 +78,6 @@ public class UserDTO {
     public void setRand(String rand) {
         this.rand = rand;
     }
+
+
 }
