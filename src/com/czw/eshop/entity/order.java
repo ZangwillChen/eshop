@@ -64,8 +64,11 @@ public class Order {
         this.user = user;
     }
 
-    @Basic
-    @Column(name = "cost")
+//    public Double getOrderPrice() {
+//        return orderPrice;
+//    }
+
+
     public Double getOrderPrice() {
         double sum = 0;
         for (long id : items.keySet()){

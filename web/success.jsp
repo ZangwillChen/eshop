@@ -11,13 +11,13 @@
 <body>
 
 <h1>
-    <center>
-        订单生成！订单号为${orderNum }
+<center>
+    订单生成！订单号为${orderNum }
 
-    </center>
+</center>
 </h1>
 <div class="pages">
-    <a class="button button-primary button-rounded button-small" href="<%=context %>/from/userlistaction!userlist?page=1"> 返回首页</a>&nbsp;&nbsp;
+    <%--<a class="button button-primary button-rounded button-small" href="<%=context %>/from/userlistaction!userlist?page=1"> 返回首页</a>&nbsp;&nbsp;--%>
 </div>
 
 </body>

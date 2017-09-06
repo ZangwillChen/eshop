@@ -60,7 +60,6 @@ public class BaseDaoImpl implements BaseDao {
 
         return (List<T>)this.hibernateTemplate.find("from" + " "+ entityName );
 
-        //return (List<T>)this.hibernateTemplate.find("from Product");
     }
 
     @Override

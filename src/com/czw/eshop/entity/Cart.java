@@ -24,11 +24,7 @@ public class Cart {
 
         items.put(good.getGoodID(),itemSelected);
 
-        //int Inv = good.getInventory();
 
-        //Inv = Inv - 1;
-
-       // good.setInventory(Inv);
     }
 
     //修改商品数量
